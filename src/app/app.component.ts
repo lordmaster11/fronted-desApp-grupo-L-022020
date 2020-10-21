@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'desAppGrupoL022020Frontend';
 
   constructor(private router:Router){}
-
+/*
   Login(){
     this.router.navigate(["login"]);
   }
@@ -18,12 +18,12 @@ export class AppComponent {
   Register(){
     this.router.navigate(["register"]);
   }
-
+*/
   Listar(){
     this.router.navigate(["listar"]);
   }
-
+/*
   ListProject(){
     this.router.navigate(["listProject"]);
-  }
+  }*/
 }

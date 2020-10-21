@@ -8,22 +8,23 @@
           <thead>
             <tr class="text-center">
               <th>ID</th>
-              <th>LOCALIDAD</th>
-              <th>PORCENTAJE</th>
               <th>NOMBRE</th>
-              <th>MONTO</th>
+              <th>LOCALIDAD</th>
+              <th>MONTO RECAUDADO</th>
+              <th>PORCENTAJE</th>
+
 
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let project of projects" class="text-center">
               <td>{{project.id}}</td>
-              <td>{{project.location}}</td>
-              <td>{{project.percentageRequiredForClosing}}</td>
               <td>{{project.fantasyName}}</td>
+              <td>{{project.location}}</td>
               <td>{{project.donatedAmount}}</td>
+              <td>{{project.percentageRequiredForClosing}}</td>
               <td>
-                <button (click)="Editar(project)" class="btn btn-warning">Donar</button>
+                <button (click)="Editar(project)" class="btn btn-success">Donar</button>
               </td>
             </tr>
           </tbody>
