@@ -29,9 +29,8 @@ export class ListarComponent implements OnInit {
     this.service.deleteUser(user)
     .subscribe(data=>{
       this.users=this.users.filter(p=>p!==user);
-      alert("Usuario eliminado...");
+      alert("User delete");
       this.router.navigate(["listar"]);
     })
   }
-
 }

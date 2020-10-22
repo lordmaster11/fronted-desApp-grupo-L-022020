@@ -4,4 +4,5 @@ export class User{
     mail:String;
     password:String;
     nick:String;
+    role:String
 }

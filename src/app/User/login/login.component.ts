@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/Model/User';
@@ -19,7 +20,14 @@ export class LoginComponent implements OnInit {
   }
   
   Login(){
-    this.router.navigate(["listProject"]);
+    this.service.login(this.user).subscribe((response) => {
+        this.router.navigate(["listProject"]);
+      },
+      (error: HttpErrorResponse) => {
+        alert("There was a problem logging you out");
+      // Handle error
+      });
+
   }
   
   Register(){

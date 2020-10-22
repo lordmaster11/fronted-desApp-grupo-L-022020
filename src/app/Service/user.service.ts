@@ -21,19 +21,33 @@ export class UserService {
   }
 
   createUser(user:User): Observable<any>{
-    return this.http.post<any>(this.Url+'/api/users/register',user, this.httpOptions); //{responseType:'text' as 'json'});
+    return this.http.post<any>(this.Url+'/api/users/register?name='+user.name+
+                                                            '&mail='+user.mail+
+                                                            '&password='+user.password+
+                                                            '&nick='+user.nick , 
+                                    this.httpOptions);
   }
 
+  login(user:User): Observable<any>{
+    return this.http.post<any>(this.Url+'/api/users/login?mail='+user.mail+
+                                                            '&password='+user.password, 
+                                    this.httpOptions);
+  }
   getUserId(id:number){
     return this.http.get<User>(this.Url+'/api/users/'+id);
   }
 
   updateUser(user:User){
-    return this.http.put<User>(this.Url+'/api/users/'+user.id,user);
+    return this.http.put<User>(this.Url+'/api/users/'+user.id+
+                                        '?name='+user.name+
+                                        '&password='+user.password+
+                                        '&nick='+user.nick+
+                                        '&role='+user.role
+                                        ,user);
   }
 
   deleteUser(user:User){
-    return this.http.delete<User>(this.Url+'/api/users/'+user.id);
+    return this.http.delete<User>(this.Url+'/api/users/'+user.id, this.httpOptions);
   }
 
   getUsers2(){
