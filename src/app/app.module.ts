@@ -13,6 +13,8 @@ import { UserService } from 'src/app/Service/user.service';
 import{HttpClientModule}from '@angular/common/http';
 import { ListComponent } from './Project/list/list.component';
 import { ProjectService } from './Service/project.service';
+import { NavbarComponent } from './Navbar/navbar/navbar.component';
+import { FooterComponent } from './Footer/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ProjectService } from './Service/project.service';
     EditComponent,
     LoginComponent,
     ListarComponent,
-    ListComponent
+    ListComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
