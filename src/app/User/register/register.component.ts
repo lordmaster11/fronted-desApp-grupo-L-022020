@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   Registrar(){
     let resp=this.service.createUser(this.user);
     resp.subscribe((data)=>this.message=data);
-    this.router.navigate(["listar"]);
+    this.router.navigate(["listProject"]);
   }
 
 /*

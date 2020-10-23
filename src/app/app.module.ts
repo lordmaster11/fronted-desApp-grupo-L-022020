@@ -14,6 +14,8 @@ import{HttpClientModule}from '@angular/common/http';
 import { ListComponent } from './Project/list/list.component';
 import { ProjectService } from './Service/project.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './Navbar/navbar/navbar.component';
+import { FooterComponent } from './Footer/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     ListarComponent,
     ListComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
