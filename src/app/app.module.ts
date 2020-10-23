@@ -13,6 +13,7 @@ import { UserService } from 'src/app/Service/user.service';
 import{HttpClientModule}from '@angular/common/http';
 import { ListComponent } from './Project/list/list.component';
 import { ProjectService } from './Service/project.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './Navbar/navbar/navbar.component';
 import { FooterComponent } from './Footer/footer/footer.component';
 
@@ -31,7 +32,8 @@ import { FooterComponent } from './Footer/footer/footer.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [UserService, ProjectService],
   bootstrap: [AppComponent]

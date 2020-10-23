@@ -1,31 +1,64 @@
-<section class="row mt-5">
-  <div class="col">
-    <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalBook" disabled="true">New Project</button>
-    <table class="table table-hover">
-      <thead>
-        <tr class="text-center">
-          <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Localidad</th>
-          <th scope="col">Monto</th>
-          <th scope="col">Porcentaje acumulado</th>
-          <th scope="col">Donantes</th>
-          <th scope="col">&nbsp;</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let project of projects; index as i" class="text-center">
-          <th scope="row">{{i+1}}</th>
-          <td>{{project.fantasyName}}</td>
-          <td>{{project.location}}</td>
-          <td>{{project.donatedAmount}}</td>
-          <td>{{project.percentageRequiredForClosing}}</td>
-          <th scope="col">&nbsp;</th>
-          <td>
-            <button class="btn btn-success" data-toggle="modal" data-target="#modalBook">Donar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h3>Projects</h3>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover">
+          <thead>
+            <tr class="text-center">
+              <th>ID</th>
+              <th>NOMBRE</th>
+              <th>LOCALIDAD</th>
+              <th>MONTO RECAUDADO</th>
+              <th>PORCENTAJE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let project of projects" class="text-center">
+              <td>{{project.id}}</td>
+              <td>{{project.fantasyName}}</td>
+              <td>{{project.location}}</td>
+              <td>{{project.donatedAmount}}</td>
+              <td>{{project.percentageRequiredForClosing}}</td>
+              <td>
+                <ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Realizar Donacion</h4>
+                    <button type="button" class="close"  (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <input class="form-control" [(ngModel)]='montoDonado'  placeholder="Ingrese Monto" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                            </div>
+                      </div>
+                    </form>
+                    <form>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <input class="form-control" [(ngModel)]='comment'  placeholder="Comentario" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                            </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="Donar(project.id, montoDonado,comment)" (click)="modal.dismiss('Cross click')">Donar</button>
+                  </div>
+                </ng-template>
+                
+                <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Realizar Donacion</button>
+                
+                
+                
+                <pre>{{ closeResult }}</pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-</section>

@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   
   Login(){
     this.service.login(this.user).subscribe((response) => {
-        this.router.navigate(["listProject"]);
+    this.router.navigate(['listProject', { id: response.id}]);
       },
       (error: HttpErrorResponse) => {
         alert("There was a problem logging you out");

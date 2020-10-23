@@ -8,12 +8,11 @@ import { Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
 
   constructor(private http:HttpClient) { }
-  
+    httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   Url='https://desappgrupol022020backend.herokuapp.com';
 
   getUsers(){
@@ -30,7 +29,7 @@ export class UserService {
 
   login(user:User): Observable<any>{
     return this.http.post<any>(this.Url+'/api/users/login?mail='+user.mail+
-                                                            '&password='+user.password, 
+                                                 '&password='+user.password, 
                                     this.httpOptions);
   }
   getUserId(id:number){
