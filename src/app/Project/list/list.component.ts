@@ -14,6 +14,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ListComponent implements OnInit {
   projects: Project[];
+  project :Project=new Project();
+
   constructor(private activatedRoute: ActivatedRoute,
               private modalService: NgbModal, 
               private service: ProjectService, 
@@ -52,6 +54,14 @@ export class ListComponent implements OnInit {
           // Handle error
           });
     }
+  }
+
+  UpdateProject(project:Project){
+    this.service.updateProject(project)
+    .subscribe(data=>{
+      this.project=data;
+      this.router.navigate(["listProject"]);
+    })
   }
 
   open(content) {
