@@ -5,6 +5,7 @@ import { Project } from 'src/app/Model/Project';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import  {MatCurrencyFormatModule} from 'mat-currency-format';
 import { HttpErrorResponse } from '@angular/common/http';
+import { UserService } from 'src/app/Service/user.service';
 
 
 @Component({
@@ -18,10 +19,12 @@ export class ListComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private modalService: NgbModal, 
-              private service: ProjectService, 
+              private service: ProjectService,
+              private serviceUser:UserService,
               private router: Router) { }
   closeResult = '';
   ngOnInit() {
+    this.Point();
     this.service.getProjects()
       .subscribe(data => {
         this.projects = data;
@@ -44,9 +47,11 @@ export class ListComponent implements OnInit {
     if(idProject== null || montoADonar == null || comment == null){
       alert("Must complete the fields");
     }else{
+      this.Point();
       let params: any = this.activatedRoute.snapshot.params;
       this.service.createDonation(params.id, idProject, montoADonar, comment)
       .subscribe(response => {
+        this.ngOnInit();
         alert("Successful donation, Thank you for collaborating");
           },
           (error: HttpErrorResponse) => {
@@ -55,6 +60,17 @@ export class ListComponent implements OnInit {
           });
     }
   }
+  points = "";
+  
+  Point(){
+    let params: any = this.activatedRoute.snapshot.params;
+    this.serviceUser.getUserId(params.id)
+    .subscribe(response => {
+     // alert("There was a problem in Donation" + response.points)
+        this.points = response.points + " Points";
+        })
+  }
+
 
   UpdateProject(project:Project){
     this.service.updateProject(project)

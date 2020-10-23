@@ -4,5 +4,6 @@ export class User{
     mail:String;
     password:String;
     nick:String;
-    role:String
+    role:String;
+    points:number
 }
