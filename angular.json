@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "desAppGrupoL022020Frontend"
+    }
+  },
+  "defaultProject": "desAppGrupoL022020Frontend",
+  "cli": {
+    "analytics": "c93ff39f-e912-4efa-b89e-955b5da4cc0d"
+  }
 }

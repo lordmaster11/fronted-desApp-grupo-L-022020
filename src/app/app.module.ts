@@ -13,6 +13,7 @@ import { UserService } from 'src/app/Service/user.service';
 import{HttpClientModule}from '@angular/common/http';
 import { ListComponent } from './Project/list/list.component';
 import { ProjectService } from './Service/project.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,14 @@ import { ProjectService } from './Service/project.service';
     EditComponent,
     LoginComponent,
     ListarComponent,
-    ListComponent
+    ListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [UserService, ProjectService],
   bootstrap: [AppComponent]

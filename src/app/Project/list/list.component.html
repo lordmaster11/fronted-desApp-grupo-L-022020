@@ -12,8 +12,6 @@
               <th>LOCALIDAD</th>
               <th>MONTO RECAUDADO</th>
               <th>PORCENTAJE</th>
-
-
             </tr>
           </thead>
           <tbody>
@@ -24,7 +22,39 @@
               <td>{{project.donatedAmount}}</td>
               <td>{{project.percentageRequiredForClosing}}</td>
               <td>
-                <button (click)="Editar(project)" class="btn btn-success">Donar</button>
+                <ng-template #content let-modal>
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Realizar Donacion</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <input class="form-control" [(ngModel)]='montoDonado'  placeholder="Ingrese Monto" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                            </div>
+                      </div>
+                    </form>
+                    <form>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <input class="form-control" [(ngModel)]='comment'  placeholder="Comentario" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                            </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="Donar(project.id, montoDonado,comment)"(click)="modal.close('Save click')">Donar</button>
+                  </div>
+                </ng-template>
+                
+                <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Realizar Donacion</button>
+                
+                <hr>
+                
+                <pre>{{ closeResult }}</pre>
               </td>
             </tr>
           </tbody>
