@@ -1,7 +1,6 @@
   <section class="row mt-5">
     <div class="col">
       
-      <p><a class="text-success">{{points}} </a></p>
       <button (click)="ProfileUser()" class="btn btn-warning">Datos Usuario</button>
       <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalBook" disabled="true">New Proyecto</button>
       <table class="table table-hover">
@@ -13,7 +12,7 @@
             <th scope="col">Monto</th>
             <th scope="col">Porcentaje acumulado</th>
             <th scope="col">Donantes</th>
-            <th scope="col">&nbsp;</th>
+            <th scope="col">Puntos de Donación: {{points}}</th>
           </tr>
         </thead>
         <tbody>

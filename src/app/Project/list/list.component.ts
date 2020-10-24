@@ -73,7 +73,7 @@ export class ListComponent implements OnInit  {
   Point(){
     this.serviceUser.getUserId(this.idUser)
     .subscribe(response => {
-        this.points = response.points + " Points";
+        this.points = response.points + "";
     })
   }
 
