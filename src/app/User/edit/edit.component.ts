@@ -10,8 +10,9 @@ import { User } from 'src/app/Model/User';
 })
 export class EditComponent implements OnInit {
 
-  user :User=new User();
-  constructor(private router:Router,private service:UserService) { }
+  constructor(private router:Router,
+              private service:UserService) { }
+  user:User=new User();
 
   ngOnInit() {
     this.Editar();
@@ -30,8 +31,11 @@ export class EditComponent implements OnInit {
     .subscribe(data=>{
       this.user=data;
       alert("Se Actualizo con Exito...!!!");
-      this.router.navigate(["listar"]);
+      this.router.navigateByUrl('/listProject'); 
+      // this.router.navigate(["listar"]);
     })
   }
-
+  returnView(user:User){
+    this.router.navigateByUrl('/listProject');    
+  }
 }

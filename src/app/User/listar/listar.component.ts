@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/Service/user.service';
 import { User } from 'src/app/Model/User';
 
-
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
@@ -11,9 +10,11 @@ import { User } from 'src/app/Model/User';
 })
 export class ListarComponent implements OnInit {
 
+  constructor(private service: UserService, 
+              private router: Router) { }
+  
   users: User[];
-  constructor(private service: UserService, private router: Router) { }
-
+  
   ngOnInit() {
     this.service.getUsers()
       .subscribe(data => {

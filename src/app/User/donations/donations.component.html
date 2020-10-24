@@ -1,7 +1,5 @@
 <section class="row mt-5">
     <div class="col">
-      
-      <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalBook" disabled="true">New Proyecto</button>
       <table class="table table-hover">
         <thead>
           <tr class="text-center">
@@ -12,12 +10,17 @@
             <th scope="col">Nombre del Proyecto</th>
           </tr>
         </thead>
-        <tbody>
-          <tr class="text-center">
-    
-
+            <tbody>
+              <tr *ngFor="let donation of donations; index as i" class="text-center">
+                <th scope="row">{{i+1}}</th>
+                <td>{{donation.dateDonation}}</td>
+                <td>{{donation.amount}}</td>
+                <td>{{donation.comment}}</td>
+                <td>{{donation.project.fantasyName}}</td>
+                <th scope="col">&nbsp;</th>
           </tr>
         </tbody>
       </table>
+      <button (click)="returnHome()" type="submit" class="btn btn-danger" routerLink="listProject">Volver</button>
     </div>
   </section>

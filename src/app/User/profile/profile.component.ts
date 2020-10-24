@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/Service/user.service';
 import { User } from 'src/app/Model/User';
 
@@ -9,24 +9,34 @@ import { User } from 'src/app/Model/User';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  
+  constructor(private activatedRoute: ActivatedRoute,
+              private service: UserService, 
+              private router: Router) { }
 
-  users: User[];
-  user :User=new User();
-  constructor(private service: UserService, private router: Router) { }
-
+  user:User = new User();
+ 
   ngOnInit() {
-    this.service.getUsers()
-    .subscribe(data => {
-      this.users = data;
+    let id=Number(localStorage.getItem("id"));
+    this.service.getUserId(id)
+    .subscribe(response => {
+      this.user = response;
     });
   }
 
   Editar(user:User):void{
-    localStorage.setItem("id",user.id.toString());
     this.router.navigate(["edit"]);
+  }
+  
+  returnHome():void{
+    this.router.navigate(['listProject']);
   }
 
   irAEdit(){
     this.router.navigate(["edit"]);
+  }
+
+  myDonations():void{
+    this.router.navigate(['donations']);
   }
 }

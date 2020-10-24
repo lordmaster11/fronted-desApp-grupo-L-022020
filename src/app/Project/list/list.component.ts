@@ -1,29 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { ProjectService } from 'src/app/Service/project.service';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params, Routes, RouterModule, NavigationEnd} from '@angular/router';
+import { ProjectService} from 'src/app/Service/project.service';
 import { Project } from 'src/app/Model/Project';
+
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import  {MatCurrencyFormatModule} from 'mat-currency-format';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserService } from 'src/app/Service/user.service';
-
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from 'src/app/User/login/login.component';
+import { User } from 'src/app/Model/User';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
-  projects: Project[];
-  project :Project=new Project();
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private modalService: NgbModal, 
+export class ListComponent implements OnInit  {
+  
+  constructor(private modalService: NgbModal, 
               private service: ProjectService,
               private serviceUser:UserService,
-              private router: Router) { }
+              private router: Router){}
+
+  projects: Project[];
+  project :Project=new Project();
   closeResult = '';
+  navigation = this.router.getCurrentNavigation();
+  user:User = new User();
+  idUser =  Number(localStorage.getItem("id"));
+  points = "";
+  
   ngOnInit() {
+    this.idUser = Number(localStorage.getItem("id"));
     this.Point();
     this.service.getProjects()
       .subscribe(data => {
@@ -39,7 +49,7 @@ export class ListComponent implements OnInit {
     this.service.deleteProject(project)
     .subscribe(data=>{
       this.projects=this.projects.filter(p=>p!==project);
-      alert("Projecto eliminado...");
+      alert("Delete Project");
     })
   }
   
@@ -48,8 +58,7 @@ export class ListComponent implements OnInit {
       alert("Must complete the fields");
     }else{
       this.Point();
-      let params: any = this.activatedRoute.snapshot.params;
-      this.service.createDonation(params.id, idProject, montoADonar, comment)
+      this.service.createDonation(this.idUser, idProject, montoADonar, comment)
       .subscribe(response => {
         this.ngOnInit();
         alert("Successful donation, Thank you for collaborating");
@@ -60,17 +69,13 @@ export class ListComponent implements OnInit {
           });
     }
   }
-  points = "";
   
   Point(){
-    let params: any = this.activatedRoute.snapshot.params;
-    this.serviceUser.getUserId(params.id)
+    this.serviceUser.getUserId(this.idUser)
     .subscribe(response => {
-     // alert("There was a problem in Donation" + response.points)
         this.points = response.points + " Points";
-        })
+    })
   }
-
 
   UpdateProject(project:Project){
     this.service.updateProject(project)
@@ -99,11 +104,8 @@ export class ListComponent implements OnInit {
   }
 
   ProfileUser(){
-    let params: any = this.activatedRoute.snapshot.params;
-    this.serviceUser.getUserId(params.id)
-    .subscribe(response => {
-     // alert("There was a problem in Donation" + response.points)
-     this.router.navigate(["profile"]);
-    })
+    localStorage.setItem("id",this.idUser.toString());
+    //this.router.navigateByUrl('/profile', { state: { id: this.idUser } }); 
+    this.router.navigate(["profile"]);
   }
 }

@@ -2,7 +2,7 @@ import { Location } from '../Model/Location';
 
 export class Project{
     id:number;
-    location:Location;
+    locationProject:Location;
     factor:String;
     percentageRequiredForClosing:String;
     fantasyName:String;

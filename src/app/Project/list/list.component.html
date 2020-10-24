@@ -20,7 +20,7 @@
           <tr *ngFor="let project of projects; index as i" class="text-center">
             <th scope="row">{{i+1}}</th>
             <td>{{project.fantasyName}}</td>
-            <td>{{project.location}}</td>
+            <td>{{project.locationProject.name}}</td>
             <td>{{project.donatedAmount}}</td>
             <td>{{project.percentageRequiredForClosing}}</td>
             <th scope="col">&nbsp;</th>

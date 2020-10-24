@@ -11,23 +11,23 @@ import { UserService } from 'src/app/Service/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  constructor(private router:Router,
+              private service:UserService
+              ){}
+  
   user: User=new User();
   message:any;
+  ngOnInit(){}
 
-  constructor(private router:Router,private service:UserService) { }
-
-  ngOnInit() {
-  }
-  
   Login(){
     this.service.login(this.user).subscribe((response) => {
-    this.router.navigate(['listProject', { id: response.id}]);
+      localStorage.setItem("id",response.id.toString()); 
+      this.router.navigate(['listProject']);
       },
       (error: HttpErrorResponse) => {
         alert("There was a problem logging you out");
       // Handle error
       });
-
   }
   
   Register(){
