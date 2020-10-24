@@ -16,6 +16,8 @@ import { ProjectService } from './Service/project.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './Navbar/navbar/navbar.component';
 import { FooterComponent } from './Footer/footer/footer.component';
+import { ProfileComponent } from './User/profile/profile.component';
+import { DonationsComponent } from './User/donations/donations.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FooterComponent } from './Footer/footer/footer.component';
     ListarComponent,
     ListComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent,
+    DonationsComponent
   ],
   imports: [
     BrowserModule,

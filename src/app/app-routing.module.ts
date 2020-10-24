@@ -5,6 +5,7 @@ import { EditComponent } from './User/edit/edit.component';
 import { ListarComponent } from './User/listar/listar.component';
 import { LoginComponent } from './User/login/login.component';
 import { RegisterComponent } from './User/register/register.component';
+import { ProfileComponent } from './User/profile/profile.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"login",pathMatch:"full"},
@@ -12,8 +13,8 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'listar',component:ListarComponent},
   {path:'edit',component:EditComponent},
-  {path:'listProject',component:ListComponent}
-
+  {path:'listProject',component:ListComponent},
+  {path:'profile', component:ProfileComponent},
 ];
 
 @NgModule({

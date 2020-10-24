@@ -97,4 +97,13 @@ export class ListComponent implements OnInit {
       //return `with: ${reason}`;
     }
   }
+
+  ProfileUser(){
+    let params: any = this.activatedRoute.snapshot.params;
+    this.serviceUser.getUserId(params.id)
+    .subscribe(response => {
+     // alert("There was a problem in Donation" + response.points)
+     this.router.navigate(["profile"]);
+    })
+  }
 }

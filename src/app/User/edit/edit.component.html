@@ -1,28 +1,38 @@
-<div class="container col-md-6">
-    <div class="card">
-      <div class="card-header">
-        <h3>Actualizar  Usuario</h3>
-      </div>
-      <div class="card-body">
-        <form action="">
-          <div class="form-group">
-            <label for="">Nombre:</label>
-            <input [(ngModel)]="user.name" name="name" type="text" class="form-control">
+  <section id="edit" class="mb-5 mt-5">
+    <div class="container">
+      <div class="row">
+  
+        <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+          <div class="card_register">
+            <div class="card">
+              <div class="card-body">
+                <form action="">
+                  <h1 class="h3 mb-3 font-weight-normal">Actualizar Usuario</h1>
+                      <div class="form-group">
+                        <label for="">Nombre:</label>
+                        <input [(ngModel)]="user.name" name="name" type="text" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Email:</label>
+                        <input [(ngModel)]="user.mail" name="mail" type="text" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Nick:</label>
+                        <input [(ngModel)]="user.nick" name="nick" type="text" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Password:</label>
+                        <input [(ngModel)]="user.password" name="password" type="text" class="form-control">
+                      </div>
+
+                      <hr>
+                      <button (click)="Actualizar(user)" class="btn btn-info">Actualizar</button>
+                      <button type="submit" class="btn btn-danger" routerLink="listProject">Volver</button>
+                </form>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="">Mail:</label>
-            <input [(ngModel)]="user.mail" name="mail" type="text" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="">Nick:</label>
-            <input [(ngModel)]="user.nick" name="nick" type="text" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="">Password:</label>
-            <input [(ngModel)]="user.password" name="password" type="text" class="form-control">
-          </div>
-          <button (click)="Actualizar(user)" class="btn btn-info">Actualizar</button>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
