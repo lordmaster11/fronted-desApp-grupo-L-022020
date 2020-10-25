@@ -3,20 +3,23 @@
       <table class="table table-hover table-bordered">
         <thead class="thead-light">
           <tr class="text-center">
-  	        <th scope="col">#</th>
-            <th scope="col">Fecha de donación</th>
-            <th scope="col">Monto</th>
-            <th scope="col">Comentario</th>
+            <th scope="col">#</th>
             <th scope="col">Nombre del Proyecto</th>
+            <th scope="col">Localidad</th>
+            <th scope="col">Monto Donado</th>
+            <th scope="col">Fecha de Donación</th>
+            <th scope="col">Comentario</th>
+            
           </tr>
         </thead>
             <tbody>
               <tr *ngFor="let donation of donations; index as i" class="text-center">
                 <th scope="row">{{i+1}}</th>
-                <td>{{donation.dateDonation}}</td>
-                <td>{{donation.amount}}</td>
-                <td>{{donation.comment}}</td>
                 <td>{{donation.project.fantasyName}}</td>
+                <td>{{donation.project.locationProject.name}}</td>
+                <td>{{donation.amount}}</td>
+                <td>{{donation.dateDonation | date:'dd/MM/yyyy'}}</td>
+                <td>{{donation.comment}}</td>
           </tr>
         </tbody>
       </table>

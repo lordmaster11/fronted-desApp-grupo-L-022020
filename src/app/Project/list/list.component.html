@@ -7,10 +7,11 @@
         <thead class="thead-light">
           <tr class="text-center">
   	        <th scope="col">#</th>
-            <th scope="col">Nombre</th>
+            <th scope="col">Nombre del Proyecto</th>
             <th scope="col">Localidad</th>
-            <th scope="col">Monto</th>
-            <th scope="col">Porcentaje acumulado</th>
+            <th scope="col">Provincia</th>
+            <th scope="col">Monto Acumulado</th>
+            <th scope="col">Porcentaje Acumulado</th>
             <th scope="col">Donantes</th>
             <th scope="col">Puntos de Donación: <a class="text-danger">{{points}}</a></th>
           </tr>
@@ -20,6 +21,7 @@
             <th scope="row">{{i+1}}</th>
             <td>{{project.fantasyName}}</td>
             <td>{{project.locationProject.name}}</td>
+            <td>{{project.locationProject.province}}</td>
             <td>{{project.donatedAmount}}</td>
             <td>{{project.percentageRequiredForClosing}}</td>
             <th scope="col">&nbsp;</th>
