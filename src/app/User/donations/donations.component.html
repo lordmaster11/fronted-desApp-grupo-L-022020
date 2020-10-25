@@ -1,14 +1,13 @@
 <section class="row mt-5">
     <div class="col">
-      <table class="table table-hover">
-        <thead>
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
           <tr class="text-center">
   	        <th scope="col">#</th>
             <th scope="col">Fecha de donación</th>
             <th scope="col">Monto</th>
             <th scope="col">Comentario</th>
             <th scope="col">Nombre del Proyecto</th>
-            <th scope="col">&nbsp;</th>
           </tr>
         </thead>
             <tbody>
@@ -18,10 +17,9 @@
                 <td>{{donation.amount}}</td>
                 <td>{{donation.comment}}</td>
                 <td>{{donation.project.fantasyName}}</td>
-                <th scope="col">&nbsp;</th>
           </tr>
         </tbody>
       </table>
-      <button (click)="returnHome()" type="submit" class="btn btn-danger" routerLink="listProject">Volver</button>
+      <button (click)="returnHome()" type="submit" class="btn btn-danger float-right" routerLink="listProject">Volver</button>
     </div>
   </section>

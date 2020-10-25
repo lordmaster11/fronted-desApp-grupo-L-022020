@@ -6,8 +6,8 @@
           <div class="card">
             <div class="card-body text-center">
               <form action="">
-                <h1 class="h3 mb-3 font-weight-normal">Register</h1>
-
+                <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
+                <hr>
                 <div class="form-group">
                   <input type="name" name="name" class="form-control" placeholder="Nombre" [(ngModel)]="user.name" required minlength="8">
                 </div>
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="form-group">
-                  <input type="nick" name="nick" class="form-control" placeholder="Nick" [(ngModel)]="user.nick" required minlength="10"
+                  <input type="nick" name="nick" class="form-control" placeholder="Apodo" [(ngModel)]="user.nick" required minlength="10"
                     maxlength="10">
                 </div>
                 
@@ -27,11 +27,10 @@
                 </div>
                 <hr>
                 
-                <button (click)="Registrar()" type="submit" class="btn btn-lg btn-secondary btn-block">Register</button>
+                <button (click)="Registrar()" type="submit" class="btn btn-info btn-block">Registrarse</button>
                 <div class="form-group">
-                  <a routerLink="/login" class="form-control login-user">Do you have account?</a>
+                  <a class="espacio" routerLink="/login">¿Aún no tienes una cuenta?</a>
                 </div>
-                
                 <div class="form-group">
                   <button class="btn btn-block btn-social btn-facebook">
                     <span class="fa fa-facebook"></span>

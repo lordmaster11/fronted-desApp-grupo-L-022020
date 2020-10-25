@@ -2,9 +2,9 @@
     <div class="col">
       
       <button (click)="ProfileUser()" class="btn btn-warning">Datos Usuario</button>
-      <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalBook" disabled="true">New Proyecto</button>
-      <table class="table table-hover">
-        <thead>
+      <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalBook" disabled="true">Nuevo Proyecto</button>
+      <table class="table table-hover table-bordered table-sm">
+        <thead class="thead-light">
           <tr class="text-center">
   	        <th scope="col">#</th>
             <th scope="col">Nombre</th>
@@ -12,7 +12,7 @@
             <th scope="col">Monto</th>
             <th scope="col">Porcentaje acumulado</th>
             <th scope="col">Donantes</th>
-            <th scope="col">Puntos de Donación: {{points}}</th>
+            <th scope="col">Puntos de Donación: <a class="text-danger">{{points}}</a></th>
           </tr>
         </thead>
         <tbody>
@@ -26,7 +26,7 @@
               <td>
                 <ng-template #content let-modal>
                   <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title">Realizar Donacion</h4>
+                    <h4 class="modal-title" id="modal-basic-title">Realizar Donación</h4>
                     <button type="button" class="close"  (click)="modal.dismiss('Cross click')">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -42,21 +42,19 @@
                     <form>
                       <div class="form-group">
                         <div class="input-group">
-                          <input class="form-control" [(ngModel)]='comment'  placeholder="Comentario" name="dp" ngbDatepicker #dp="ngbDatepicker" rows="10" cols="40" spellcheck="true">
+                          <input class="form-control" [(ngModel)]='comment'  placeholder="Escribe aquí tus comentarios" name="dp" ngbDatepicker #dp="ngbDatepicker" rows="10" cols="40" spellcheck="true">
                         </div>
                       </div>
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-dark" (click)="Donar(project.id, montoDonado,comment)" (click)="modal.dismiss('Cross click')" (click)="UpdateProject(project)">Donar</button>
+                    <button type="button" class="btn btn-danger" (click)="Donar(project.id, montoDonado,comment)" (click)="modal.dismiss('Cross click')" (click)="UpdateProject(project)">Donar</button>
                   </div>
                 </ng-template>
-                
-                <button class="btn btn-success" (click)="open(content)">Realizar Donación</button>
-                
-                
-                
-                <pre>{{ closeResult }}</pre>
+                <div class="form-group-btn text-center">
+                <button class="btn btn-success btn-sm" (click)="open(content)">Realizar Donación</button>
+                </div>
+                <!--<pre>{{ closeResult }}</pre>-->
               </td>   
           </tr>
         </tbody>

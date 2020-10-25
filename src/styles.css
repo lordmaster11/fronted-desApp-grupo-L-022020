@@ -1,36 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
-#books {
-  border-radius: 0.25rem;
-  background: #f9f9f9 !important;
+body{
+  margin:0;
+  padding: 0;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(234,249,249,0.67) 0.1%, rgba(239,249,251,0.63) 90.1% );
 }
 
-.card_book .card {
-  min-height: 312px;
+#footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:40px;
+  width:100%;
+  background: black;
+  text-align: center;
 }
 
-p.card-text,
-h4.card-title {
-  min-height: 96px !important;
+.footer-copyright{
+  color: white;
+  text-align: center;
+  list-style: none;
+  margin: 0 auto;
 }
 
-.card-title {
-  color: #007bff;
-  cursor: pointer;
+.form-group input{
+height: 35px;
+border-radius: 5px;
 }
 
-.card_book .card .card-body img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+.card{
+  background-image: radial-gradient( circle 993px at 0.5% 50.5%,  rgba(137,171,245,0.37) 0%, rgba(245,247,252,1) 100.2% );
 }
 
-div.container-precio-idioma{
-  display: flex;
-  justify-content: space-between;
+.btn-block{
+  margin-bottom: 1px;
 }
 
-.footer{
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
+.table tbody>tr>td { 
+  vertical-align: top; 
+}
+
+.table tbody>tr>td.vert-align { 
+  vertical-align: middle; 
 }

@@ -3,5 +3,10 @@ section {
   }
 
 .btn {
-    margin-left: 10px;
+    margin-left: 15px;
+}
+
+.centerbtn{
+  display: flex;
+  justify-content: center;
 }
