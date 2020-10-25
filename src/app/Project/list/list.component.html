@@ -22,9 +22,9 @@
             <td>{{project.fantasyName}}</td>
             <td>{{project.locationProject.name}}</td>
             <td>{{project.locationProject.province}}</td>
-            <td>{{project.donatedAmount}}</td>
-            <td>{{project.percentageRequiredForClosing}}</td>
-            <th scope="col">&nbsp;</th>
+            <td>$ {{project.donatedAmount}}</td>
+            <td>{{((project.donatedAmount/project.moneyNeeded)*100).toFixed(2)}} %</td>
+            <td>{{project.numberOfDonors}}</td>  
               <td>
                 <ng-template #content let-modal>
                   <div class="modal-header">

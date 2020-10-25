@@ -8,4 +8,6 @@ export class Project{
     fantasyName:String;
     donatedAmount:number;
     isOpen:boolean;
+    moneyNeeded:number;
+    numberOfDonors:number;
 }
