@@ -15,9 +15,11 @@ export class ProfileComponent implements OnInit {
               private router: Router) { }
 
   user:User = new User();
- 
+  userDonor = true;
+  
   ngOnInit() {
     let id=Number(localStorage.getItem("id"));
+    this.userDonor = String(localStorage.getItem("role")) != "ROLE_ADMIN";
     this.service.getUserId(id)
     .subscribe(response => {
       this.user = response;

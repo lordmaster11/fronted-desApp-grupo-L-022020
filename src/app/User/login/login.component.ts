@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   Login(){
     this.service.login(this.user).subscribe((response) => {
       localStorage.setItem("id",response.id.toString()); 
+      localStorage.setItem("role",response.role.toString()); 
       this.router.navigate(['listProject']);
       },
       (error: HttpErrorResponse) => {

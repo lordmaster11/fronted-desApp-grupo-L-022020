@@ -30,10 +30,12 @@ export class ListComponent implements OnInit  {
   navigation = this.router.getCurrentNavigation();
   user:User = new User();
   idUser =  Number(localStorage.getItem("id"));
+  userDonor = true;
   points = "";
   
   ngOnInit() {
     this.idUser = Number(localStorage.getItem("id"));
+    this.userDonor = String(localStorage.getItem("role")) != "ROLE_ADMIN";
     this.Point();
     this.service.getProjects()
       .subscribe(data => {
@@ -88,9 +90,7 @@ export class ListComponent implements OnInit  {
   open(content) {
     this.modalService.open(content, { centered: true }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      
-    });
+    }, (reason) => { });
   }
 
   openVerticallyCentered(content) {
@@ -108,8 +108,11 @@ export class ListComponent implements OnInit  {
   }
 
   ProfileUser(){
-    localStorage.setItem("id",this.idUser.toString());
+   // localStorage.setItem("id",this.idUser.toString());
     //this.router.navigateByUrl('/profile', { state: { id: this.idUser } }); 
     this.router.navigate(["profile"]);
+  }
+  creteProject(){
+    this.router.navigate(["createProject"]);
   }
 }

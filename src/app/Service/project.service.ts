@@ -19,8 +19,13 @@ export class ProjectService {
     return this.http.get<Project[]>(this.Url);
   }
 
-  createProject(project:Project){
-    return this.http.post<Project>(this.Url+"/register",project);
+  createProject(locationProjectId:number, factor:number, percentageRequiredForClosing:number, fantasyName:string){
+    return this.http.post<any>("https://desappgrupol022020backend.herokuapp.com/api/newProject?"+
+                                "locationProjectId="+locationProjectId+
+                                "&factor="+factor+
+                                "&percentageRequiredForClosing="+percentageRequiredForClosing+
+                                "&fantasyName="+fantasyName,
+                                this.httpOptions);    
   }
 
   getProjectId(id:number){

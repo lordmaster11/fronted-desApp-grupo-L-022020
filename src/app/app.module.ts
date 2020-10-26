@@ -18,6 +18,7 @@ import { NavbarComponent } from './Navbar/navbar/navbar.component';
 import { FooterComponent } from './Footer/footer/footer.component';
 import { ProfileComponent } from './User/profile/profile.component';
 import { DonationsComponent } from './User/donations/donations.component';
+import { CreateProjectComponent } from './Project/create-project/create-project.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DonationsComponent } from './User/donations/donations.component';
     NavbarComponent,
     FooterComponent,
     ProfileComponent,
-    DonationsComponent
+    DonationsComponent,
+    CreateProjectComponent
   ],
   imports: [
     BrowserModule,
