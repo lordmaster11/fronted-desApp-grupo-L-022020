@@ -24,6 +24,8 @@
     "@auth0/angular-jwt": "^5.0.1",
     "@material/dialog": "^7.0.0",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
+    "@ngx-translate/core": "^10.0.2",
+    "@ngx-translate/http-loader": "^3.0.1",
     "angular-i18n": "^1.8.2",
     "blk-design-system-angular": "^1.0.0",
     "bootstrap": "^4.5.0",

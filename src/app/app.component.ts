@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'desAppGrupoL022020Frontend';
 
-  constructor(private router:Router){}
+  constructor(private router:Router) {  }
 /*
   Login(){
     this.router.navigate(["login"]);

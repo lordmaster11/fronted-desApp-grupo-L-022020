@@ -1,20 +1,20 @@
   <section class="row mt-5">
     <div class="col">
       
-      <button (click)="ProfileUser()" class="btn btn-warning">Datos Usuario</button>
-      <button (click)="creteProject()" class="btn btn-primary float-right mb-3" *ngIf="!userDonor" data-toggle="modal" data-target="#modalBook" >Nuevo Proyecto</button>
+      <button (click)="ProfileUser()" class="btn btn-warning">{{ 'Datos Usuario' | translate }}</button>
+      <button (click)="creteProject()" class="btn btn-primary float-right mb-3" *ngIf="!userDonor" data-toggle="modal" data-target="#modalBook">{{ 'Nuevo Proyecto' | translate }}</button>
       <p></p>
       <table class="table table-hover table-bordered table-sm">
         <thead class="thead-light">
           <tr class="text-center">
   	        <th scope="col">#</th>
-            <th scope="col">Nombre del Proyecto</th>
-            <th scope="col">Localidad</th>
-            <th scope="col">Provincia</th>
-            <th scope="col">Monto Acumulado</th>
-            <th scope="col">Porcentaje Acumulado</th>
-            <th scope="col">Donantes</th>
-            <th scope="col" *ngIf="userDonor"> Mis puntos: <a class="text-danger">{{points}}</a></th>
+            <th scope="col">{{ 'Nombre del Proyecto' | translate }}</th>
+            <th scope="col">{{ 'Localidad' | translate }}</th>
+            <th scope="col">{{ 'Provincia' | translate }}</th>
+            <th scope="col">{{ 'Monto Acumulado' | translate }}</th>
+            <th scope="col">{{ 'Porcentaje Acumulado' | translate }}</th>
+            <th scope="col">{{ 'Donantes' | translate }}</th>
+            <th scope="col" *ngIf="userDonor"> {{ 'Mis puntos: ' | translate }} <a class="text-danger">{{points}}</a></th>
           </tr>
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
               <td *ngIf="userDonor && project.isOpen">
                 <ng-template #content let-modal>
                   <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title">Realizar Donación</h4>
+                    <h4 class="modal-title" id="modal-basic-title">{{ 'Realizar Donación' | translate }}</h4>
                     <button type="button" class="close"  (click)="modal.dismiss('Cross click')">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -39,24 +39,24 @@
                     <form>
                       <div class="form-group">
                         <div class="input-group">
-                          <input class="form-control" [(ngModel)]='montoDonado'  placeholder="Ingrese Monto" name="dp" ngbDatepicker #dp="ngbDatepicker" required>
+                          <input class="form-control" [(ngModel)]='montoDonado'  placeholder="{{ 'Ingrese Monto' | translate }}" name="dp" ngbDatepicker #dp="ngbDatepicker" required>
                             </div>
                       </div>
                     </form>
                     <form>
                       <div class="form-group">
                         <div class="input-group">
-                          <input class="form-control" [(ngModel)]='comment'  placeholder="Escribe aquí tus comentarios" name="dp" ngbDatepicker #dp="ngbDatepicker" rows="10" cols="40" spellcheck="true" required>
+                          <input class="form-control" [(ngModel)]='comment'  placeholder="{{ 'Escribe aquí tus comentarios' | translate }}" name="dp" ngbDatepicker #dp="ngbDatepicker" rows="10" cols="40" spellcheck="true" required>
                         </div>
                       </div>
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" (click)="Donar(project.id, montoDonado,comment)" (click)="modal.dismiss('Cross click')" (click)="UpdateProject(project)">Donar</button>
+                    <button type="button" class="btn btn-danger" (click)="Donar(project.id, montoDonado,comment)" (click)="modal.dismiss('Cross click')" (click)="UpdateProject(project)">{{ 'Donar' | translate }}</button>
                   </div>
                 </ng-template>
                 <div class="form-group-btn text-center">
-                <button class="btn btn-success btn-sm" (click)="open(content)">Realizar Donación</button>
+                <button class="btn btn-success btn-sm" (click)="open(content)">{{ 'Realizar Donación' | translate }}</button>
                 </div>
                 <pre>{{ closeResult }}</pre>
               </td>   

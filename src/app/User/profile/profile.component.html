@@ -6,10 +6,10 @@
           <div class="card">
             <div class="card-body">
               <form action="">
-                <h1 class="h3 mb-3 font-weight-normal">Datos del Usuario</h1>
+                <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'Datos del Usuario' | translate }}</h1>
                 <hr>
                 <div class="form-group">
-                  <label for="">Nombre:</label>
+                  <label for="">{{ 'Nombre:' | translate }}</label>
                   <input value={{user.name}} class="form-control" disabled>
                 </div>
 
@@ -19,19 +19,19 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="">Apodo:</label>
+                  <label for="">{{ 'Apodo:' | translate }}</label>
                   <input value={{user.nick}} class="form-control" disabled>
                 </div>
                 
                 <div class="form-group" *ngIf="userDonor">
-                  <label for="">Puntos acumulados:</label>
+                  <label for="">{{ 'Puntos acumulados:' | translate }}</label>
                   <input value={{user.points}} class="form-control" disabled>
                 </div>
 
                 <hr>
-                <button (click)="irAEdit()" class="btn btn-info">Editar</button>
-                <button (click)="myDonations()" *ngIf="userDonor" type="submit" class="btn btn-warning">Donaciones</button>
-                <button (click)="returnHome()" type="submit" class="btn btn-danger" routerLink="listProject">Volver   
+                <button (click)="irAEdit()" class="btn btn-info">{{ 'Editar' | translate }}</button>
+                <button (click)="myDonations()" *ngIf="userDonor" type="submit" class="btn btn-warning">{{ 'Donaciones' | translate }}</button>
+                <button (click)="returnHome()" type="submit" class="btn btn-danger" routerLink="listProject">{{ 'Volver' | translate }}   
                 </button>
               </form>
             </div>

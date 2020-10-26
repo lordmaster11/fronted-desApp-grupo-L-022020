@@ -6,31 +6,31 @@
             <div class="card">
               <div class="card-body text-center">
                 <form action="">
-                  <h1 class="h3 mb-3 font-weight-normal">Crear Proyecto</h1>
+                  <h1 class="h3 mb-3 font-weight-normal">{{ 'Crear Proyecto' | translate }}</h1>
                   <hr>
                   <div class="form-group">
                     <select [(ngModel)]= "selectedLevel" (change)="selected($event)" class="form-control"  
                             required minlength="10" maxlength="10">
-                        <option *ngFor="let item of locations" [value]="item.id" >{{item.name}}</option>
+                        <option *ngFor="let item of locations" [value]="item.id">{{item.name}}</option>
                     </select>
                   </div>
                   
                   <div class="form-group">
-                    <input type="number" name="factor" class="form-control" placeholder="Factor" [(ngModel)]="project.factor" required minlength="8">
+                    <input type="number" name="factor" class="form-control" placeholder="{{ 'Factor' | translate }}" [(ngModel)]="project.factor" required minlength="8">
                   </div>
                   
                   <div class="form-group">
-                    <input type="number" name="percentageRequiredForClosing" class="form-control" placeholder="Porcentaje requerido" [(ngModel)]="project.percentageRequiredForClosing" required minlength="10"
+                    <input type="number" name="percentageRequiredForClosing" class="form-control" placeholder="{{ 'Porcentaje Requerido' | translate }}" [(ngModel)]="project.percentageRequiredForClosing" required minlength="10"
                       maxlength="10">
                   </div>
                   
                   <div class="form-group">
-                    <input type="name" name="fantasyName" class="form-control" placeholder="Nombre de fantasia" [(ngModel)]="project.fantasyName" required minlength="5"
+                    <input type="name" name="fantasyName" class="form-control" placeholder="{{ 'Nombre del Proyecto' | translate }}" [(ngModel)]="project.fantasyName" required minlength="5"
                       maxlength="10">
                   </div>
                   <hr>
                   
-                  <button (click)="Registrar()" type="submit" class="btn btn-info btn-block">Crear Proyecto</button>
+                  <button (click)="Registrar()" type="submit" class="btn btn-info btn-block">{{ 'Crear Proyecto' | translate }}</button>
                 
                 </form>
               </div>
