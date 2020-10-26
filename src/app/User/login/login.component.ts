@@ -20,16 +20,24 @@ export class LoginComponent implements OnInit {
   ngOnInit(){}
 
   Login(){
+    if(this.user.name!= null || this.user.password!= null){
     this.service.login(this.user).subscribe((response) => {
       localStorage.setItem("id",response.id.toString()); 
       localStorage.setItem("role",response.role.toString()); 
       this.router.navigate(['listProject']);
       },
       (error: HttpErrorResponse) => {
-        alert("There was a problem logging you out");
+        console.log(error.message, "ERROR MESAGGE")
+        console.log(error, "ERROR MESAGGE")
+        alert("Ingreso mal los datos");
       // Handle error
       });
+    }else{
+      alert("Debe ingresar todos los datos");
+    }
   }
+
+
   
   Register(){
     this.router.navigate(["register"]);

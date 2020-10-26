@@ -57,16 +57,16 @@ export class ListComponent implements OnInit  {
   
   Donar(idProject:number, montoADonar:number, comment:string){
     if(idProject== null || montoADonar == null || comment == null){
-      alert("Must complete the fields");
+      alert("Debe ingresar todos los datos");
     }else{
       this.Point();
       this.service.createDonation(this.idUser, idProject, montoADonar, comment)
       .subscribe(response => {
         this.ngOnInit();
-        alert("Successful donation, Thank you for collaborating");
+        alert("Donación exitosa, gracias por su colaboración");
           },
           (error: HttpErrorResponse) => {
-          alert("There was a problem in Donation" + error.error.errors);
+          alert("Hubo un problema con la donación" + error.error.errors);
           // Handle error
           });
     }

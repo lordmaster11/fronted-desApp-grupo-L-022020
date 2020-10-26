@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/Model/User';
 import { UserService } from 'src/app/Service/user.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -17,18 +18,26 @@ export class RegisterComponent implements OnInit {
   message:any;
 
   ngOnInit() {}
-  
+
   Registrar(){
+    if(this.user.name== null || this.user.mail== null || this.user.nick== null || this.user.password== null){
+      alert("Debe ingresar todos los datos");
+    }else{
     let resp=this.service.createUser(this.user);
     resp.subscribe((response) => {
       localStorage.setItem("id",response.id.toString());
       this.router.navigate(['listProject']);
         },
         (error: HttpErrorResponse) => {
-          alert("There was a problem logging you out");
+          alert("El usuario con el email: "+ this.user.mail + " ya existe!!!");
         // Handle error
         });
+    }
   }
+  
+
+
+  //onSubmit() { this.submitted = true; }
 /*
   register() {
     const user = { name: this.name, mail: this.mail, password: this.password, nick: this.name};

@@ -39,14 +39,14 @@
                     <form>
                       <div class="form-group">
                         <div class="input-group">
-                          <input class="form-control" [(ngModel)]='montoDonado'  placeholder="Ingrese Monto" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                          <input class="form-control" [(ngModel)]='montoDonado'  placeholder="Ingrese Monto" name="dp" ngbDatepicker #dp="ngbDatepicker" required>
                             </div>
                       </div>
                     </form>
                     <form>
                       <div class="form-group">
                         <div class="input-group">
-                          <input class="form-control" [(ngModel)]='comment'  placeholder="Escribe aquí tus comentarios" name="dp" ngbDatepicker #dp="ngbDatepicker" rows="10" cols="40" spellcheck="true">
+                          <input class="form-control" [(ngModel)]='comment'  placeholder="Escribe aquí tus comentarios" name="dp" ngbDatepicker #dp="ngbDatepicker" rows="10" cols="40" spellcheck="true" required>
                         </div>
                       </div>
                     </form>
@@ -58,7 +58,7 @@
                 <div class="form-group-btn text-center">
                 <button class="btn btn-success btn-sm" (click)="open(content)">Realizar Donación</button>
                 </div>
-                <!--<pre>{{ closeResult }}</pre>-->
+                <pre>{{ closeResult }}</pre>
               </td>   
           </tr>
         </tbody>

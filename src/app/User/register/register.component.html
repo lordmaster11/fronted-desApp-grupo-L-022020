@@ -9,21 +9,19 @@
                 <h1 class="h3 mb-3 font-weight-normal">Registrarse</h1>
                 <hr>
                 <div class="form-group">
-                  <input type="name" name="name" class="form-control" placeholder="Nombre" [(ngModel)]="user.name" required minlength="8">
+                  <input type="name" name="name" class="form-control" placeholder="Nombre" [(ngModel)]="user.name" required>
                 </div>
                 
                 <div class="form-group">
-                  <input type="mail" name="mail" class="form-control" placeholder="Email" [(ngModel)]="user.mail" required minlength="8">
+                  <input type="mail" name="mail" class="form-control" placeholder="Email" [(ngModel)]="user.mail" required>
                 </div>
 
                 <div class="form-group">
-                  <input type="nick" name="nick" class="form-control" placeholder="Apodo" [(ngModel)]="user.nick" required minlength="10"
-                    maxlength="10">
+                  <input type="nick" name="nick" class="form-control" placeholder="Apodo" [(ngModel)]="user.nick" required>
                 </div>
                 
                 <div class="form-group">
-                  <input type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" required minlength="5"
-                    maxlength="10">
+                  <input type="password" name="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" required>
                 </div>
                 <hr>
                 
