@@ -2,7 +2,8 @@
     <div class="col">
       
       <button (click)="ProfileUser()" class="btn btn-warning">Datos Usuario</button>
-      <button class="btn btn-primary float-right mb-3" data-toggle="modal" data-target="#modalBook" disabled="true">Nuevo Proyecto</button>
+      <button (click)="creteProject()" class="btn btn-primary float-right mb-3" *ngIf="!userDonor" data-toggle="modal" data-target="#modalBook" >Nuevo Proyecto</button>
+      <p></p>
       <table class="table table-hover table-bordered table-sm">
         <thead class="thead-light">
           <tr class="text-center">
@@ -13,7 +14,7 @@
             <th scope="col">Monto Acumulado</th>
             <th scope="col">Porcentaje Acumulado</th>
             <th scope="col">Donantes</th>
-            <th scope="col">Puntos de Donación: <a class="text-danger">{{points}}</a></th>
+            <th scope="col" *ngIf="userDonor"> Mis puntos: <a class="text-danger">{{points}}</a></th>
           </tr>
         </thead>
         <tbody>
@@ -24,8 +25,9 @@
             <td>{{project.locationProject.province}}</td>
             <td>$ {{project.donatedAmount}}</td>
             <td>{{((project.donatedAmount/project.moneyNeeded)*100).toFixed(2)}} %</td>
-            <td>{{project.numberOfDonors}}</td>  
-              <td>
+            <td>{{project.numberOfDonors}}</td> 
+            <td *ngIf="userDonor && !project.isOpen"> Proyecto cerrado</td> 
+              <td *ngIf="userDonor && project.isOpen">
                 <ng-template #content let-modal>
                   <div class="modal-header">
                     <h4 class="modal-title" id="modal-basic-title">Realizar Donación</h4>

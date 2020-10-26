@@ -3,9 +3,9 @@ import { Location } from '../Model/Location';
 export class Project{
     id:number;
     locationProject:Location;
-    factor:String;
-    percentageRequiredForClosing:String;
-    fantasyName:String;
+    factor:number;
+    percentageRequiredForClosing:number;
+    fantasyName:string;
     donatedAmount:number;
     isOpen:boolean;
     moneyNeeded:number;

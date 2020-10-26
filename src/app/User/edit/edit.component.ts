@@ -11,7 +11,8 @@ import { User } from 'src/app/Model/User';
 export class EditComponent implements OnInit {
 
   constructor(private router:Router,
-              private service:UserService) { }
+              private service:UserService){}
+              
   user:User=new User();
 
   ngOnInit() {

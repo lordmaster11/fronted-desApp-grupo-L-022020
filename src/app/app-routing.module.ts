@@ -7,6 +7,7 @@ import { LoginComponent } from './User/login/login.component';
 import { RegisterComponent } from './User/register/register.component';
 import { ProfileComponent } from './User/profile/profile.component';
 import { DonationsComponent } from './User/donations/donations.component';
+import { CreateProjectComponent } from './Project/create-project/create-project.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"login",pathMatch:"full"},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'listProject',component:ListComponent},
   {path:'profile', component:ProfileComponent},
   {path:'donations', component:DonationsComponent},
+  {path:'createProject', component:CreateProjectComponent}, 
 ];
 
 @NgModule({
