@@ -34,13 +34,18 @@ export class ListComponent implements OnInit  {
   points = "";
   
   ngOnInit() {
-    this.idUser = Number(localStorage.getItem("id"));
-    this.userDonor = String(localStorage.getItem("role")) != "ROLE_ADMIN";
-    this.Point();
-    this.service.getProjects()
-      .subscribe(data => {
-        this.projects = data;
-      });
+    
+    if(Number(localStorage.getItem("id")) == -1){
+      this.router.navigate(['login']);
+    }else{
+      this.idUser = Number(localStorage.getItem("id"));
+      this.userDonor = String(localStorage.getItem("role")) != "ROLE_ADMIN";
+      this.Point();
+      this.service.getProjects()
+        .subscribe(data => {
+          this.projects = data;
+        });
+      }
   }
   Editar(project:Project):void{
     localStorage.setItem("id",project.id.toString());
