@@ -30,9 +30,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['listProject']);
       },
       (error: HttpErrorResponse) => {
-        console.log(error.message, "ERROR MESAGGE")
-        console.log(error, "ERROR MESAGGE")
-        alert("Ingreso mal los datos");
+        alert("Ingresó mal los datos");
       // Handle error
       });
     }else{
