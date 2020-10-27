@@ -37,6 +37,6 @@ export class EditComponent implements OnInit {
     })
   }
   returnView(user:User){
-    this.router.navigateByUrl('/listProject');    
+    this.router.navigateByUrl('/profile');    
   }
 }
