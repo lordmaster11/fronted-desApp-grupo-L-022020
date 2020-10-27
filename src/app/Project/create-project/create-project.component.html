@@ -31,7 +31,8 @@
                   <hr>
                   
                   <button (click)="Registrar()" type="submit" class="btn btn-info btn-block">{{ 'Crear Proyecto' | translate }}</button>
-                
+                  <button (click)="returnHome()" type="submit" class="btn btn-danger btn-block" routerLink="listProject">{{ 'Cancelar' | translate }}   
+                  </button>
                 </form>
               </div>
             </div>

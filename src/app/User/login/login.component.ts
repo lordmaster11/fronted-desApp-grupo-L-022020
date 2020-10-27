@@ -36,8 +36,6 @@ export class LoginComponent implements OnInit {
       alert("Debe ingresar todos los datos");
     }
   }
-
-
   
   Register(){
     this.router.navigate(["register"]);

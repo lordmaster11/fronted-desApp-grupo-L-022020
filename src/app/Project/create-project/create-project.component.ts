@@ -46,4 +46,8 @@ export class CreateProjectComponent implements OnInit {
   selected(item:any){
     this.idProject = item.target.value
   }
+
+  returnHome():void{
+    this.router.navigate(['listProject']);
+  }
 }
