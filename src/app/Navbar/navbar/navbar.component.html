@@ -26,8 +26,14 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item" *ngIf="!isLogged">	
+        <a *ngIf="!user.visible" class="nav-link" routerLink="/register">{{ 'Registrarse' | translate }}</a>	
+      </li>
+      <li class="nav-item" *ngIf="!isLogged">	
+        <a *ngIf="!user.visible"class="nav-link" routerLink="/login">{{ 'Iniciar sesión' | translate }}</a>	
+      </li>
       <li class="nav-item" *ngIf="!isLogged">
-        <button *ngIf="user.visible"  class="btn btn-primary float-right mb-3" (click)="exitUser()">{{ 'Salir' | translate }}</button>
+        <a *ngIf="user.visible"  class="nav-link" (click)="exitUser()" routerLink="/login">{{ 'Salir' | translate }}</a>
       </li>
       <li class="nav-item" *ngIf="isLogged">
         <a class="nav-link" routerLink="/profile">{{ 'Profile' | translate }}</a>
