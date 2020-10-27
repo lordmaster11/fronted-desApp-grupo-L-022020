@@ -17,13 +17,16 @@ export class LoginComponent implements OnInit {
   
   user: User=new User();
   message:any;
-  ngOnInit(){}
+  ngOnInit(){
+    this.service.hide();
+  }
 
   Login(){
     if(this.user.name!= null || this.user.password!= null){
     this.service.login(this.user).subscribe((response) => {
       localStorage.setItem("id",response.id.toString()); 
       localStorage.setItem("role",response.role.toString()); 
+      this.service.show();
       this.router.navigate(['listProject']);
       },
       (error: HttpErrorResponse) => {
