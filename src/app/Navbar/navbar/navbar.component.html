@@ -1,43 +1,41 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-    <a class="navbar-brand" href="javascript: history.go(-1)">{{ 'Crowdfunding Solidario Argentina Conectada' | translate }}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <a class="navbar-brand" href="javascript: history.go(-1)">{{ 'Crowdfunding Solidario Argentina Conectada' | translate }}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <!--<button (click)="useLanguage('en')">en</button>-->
-    
+  <!--<button (click)="useLanguage('en')">en</button>-->
+  
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" *ngIf="!isLogged">
+      <a type="button" class="navbar-brand" (click)="useLanguage('es')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg" alt="argentina" style="width:40px;"></a>
+    </li>
+  </ul>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" *ngIf="!isLogged">
+      <a type="button" class="navbar-brand" (click)="useLanguage('en')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/800px-Flag_of_the_United_Kingdom.svg.png" alt="reino unido" style="width:50px;"></a>
+    </li>
+  </ul>
+  <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item" *ngIf="!isLogged">
-        <a type="button" class="navbar-brand" (click)="useLanguage('es')">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg" alt="argentina" style="width:40px;"></a>
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/">{{ 'Profile' | translate }}</a>
       </li>
     </ul>
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item" *ngIf="!isLogged">
-        <a type="button" class="navbar-brand" (click)="useLanguage('en')">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/800px-Flag_of_the_United_Kingdom.svg.png" alt="reino unido" style="width:50px;"></a>
+        <button *ngIf="user.visible"  class="btn btn-primary float-right mb-3" (click)="exitUser()">{{ 'Salir' | translate }}</button>
+      </li>
+      <li class="nav-item" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/profile">{{ 'Profile' | translate }}</a>
+      </li>
+      
+      <li class="nav-item" *ngIf="isLogged">
+        <a href="#" class="nav-link" (click)="onLogout()">{{ 'Salir' | translate }}</a>
       </li>
     </ul>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item" *ngIf="isLogged">
-          <a class="nav-link" routerLink="/">{{ 'Profile' | translate }}</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item" *ngIf="!isLogged">
-          <a class="nav-link" routerLink="/register">{{ 'Registrarse' | translate }}</a>
-        </li>
-        <li class="nav-item" *ngIf="isLogged">
-          <a class="nav-link" routerLink="/profile">{{ 'Profile' | translate }}</a>
-        </li>
-        <li class="nav-item" *ngIf="!isLogged">
-          <a class="nav-link" routerLink="/login">{{ 'Iniciar sesión' | translate }}</a>
-        </li>
-        <li class="nav-item" *ngIf="isLogged">
-          <a href="#" class="nav-link" (click)="onLogout()">{{ 'Salir' | translate }}</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  </div>
+</nav>

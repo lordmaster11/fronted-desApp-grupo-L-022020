@@ -56,4 +56,10 @@ export class UserService {
   createUser2(location:Location){
     return this.http.post<Location>('https://desappgrupol022020backend.herokuapp.com/api/location',location, this.httpOptions);
   }
+  visible: boolean = true;
+
+  hide() { this.visible = false }
+
+  show() { this.visible = true }
+  
 }

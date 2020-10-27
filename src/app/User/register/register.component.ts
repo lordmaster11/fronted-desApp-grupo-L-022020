@@ -25,7 +25,9 @@ export class RegisterComponent implements OnInit {
     }else{
     let resp=this.service.createUser(this.user);
     resp.subscribe((response) => {
+      this.service.show();
       localStorage.setItem("id",response.id.toString());
+      localStorage.setItem("role", "ROLE_USER"); 
       this.router.navigate(['listProject']);
         },
         (error: HttpErrorResponse) => {
