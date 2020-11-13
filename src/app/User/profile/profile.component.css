@@ -5,3 +5,30 @@ section {
 .btn {
     margin-left: 10px;
 }
+
+.profile-form {
+  padding: 3rem 1rem;
+}
+
+  mat-card {
+    max-width: 330px;
+    margin: 2rem auto;
+    text-align: left;
+  }
+
+  .full-width-input {
+    width: 100%;
+  }
+
+  .separator {
+    margin-bottom: 2rem;
+  }
+
+  .mat-card {
+    margin-top: 50px;
+  }
+
+  .centerbtn{
+    display: flex;
+    justify-content: center;
+  }

@@ -38,5 +38,9 @@
     "Factor": "Factor",
     "Porcentaje Requerido": "Porcentaje Requerido",
     "Cancelar": "Cancelar",
-    "Salir":"Salir"
+    "Salir":"Salir",
+    "No es un email valido": "No es un email valido",
+    "Debe ingresar un valor": "Debe ingresar un valor",
+    "Este campo debe tener más de ": "Este campo debe tener más de ",
+    "caracteres": "caracteres"
 }

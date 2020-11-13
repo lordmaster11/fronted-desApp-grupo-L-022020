@@ -1,3 +1,4 @@
+<!--
 <section id="register" class="mb-5 mt-5">
   <div class="container">
     <div class="row">
@@ -47,3 +48,93 @@
     </div>
   </div>
 </section>
+-->
+
+<div class="register-form">
+  <mat-card>
+    <mat-card-content>
+      <h1 class="h3 mb-3 font-weight-normal">{{ 'Registrarse' | translate }}</h1>
+      <hr>
+      <form [formGroup]="loginForm.baseForm" (ngSubmit)="Registrar()">
+        <mat-form-field class="full-width-input">
+          <input
+            text="text"
+            formControlName="name"
+            matInput
+            placeholder="{{ 'Nombre' | translate }}"
+            required
+          />
+          <mat-error *ngIf="checkField('name')">
+            {{ loginForm.errorMessage }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+          <input
+            text="text"
+            formControlName="mail"
+            matInput
+            placeholder="Email"
+            required
+          />
+          <mat-error *ngIf="checkField('mail')">
+            {{ loginForm.errorMessage }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width-input">
+          <input
+            text="text"
+            formControlName="nick"
+            matInput
+            placeholder="{{ 'Apodo' | translate }}"
+            required
+          />
+          <mat-error *ngIf="checkField('nick')">
+            {{ loginForm.errorMessage }}
+          </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="full-width-input">
+          <input
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+            matInput
+            placeholder="{{ 'Contraseña' | translate }}"
+            required
+          />
+          <button mat-icon-button matSuffix (click)="hide = !hide">
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error *ngIf="checkField('password')">
+            {{ loginForm.errorMessage }}
+          </mat-error>
+        </mat-form-field>
+        <button
+          [disabled]="loginForm.baseForm.invalid"
+          type="submit"
+          mat-raised-button
+          color="primary"
+        >{{ 'Registrarse' | translate }}
+        </button>
+      </form>
+
+      <div class="form-group">
+        <a class="espacio" routerLink="/login"> {{ '¿Ya tienes una cuenta? Inicia sesión' | translate }}</a>
+        <hr>
+
+        <div class="form-group">
+          <button class="btn btn-block btn-social btn-facebook" >
+            <span class="fa fa-facebook"></span>
+            FACEBOOK
+          </button>
+          <button class="btn btn-block btn-social btn-google" >
+            <span class="fa fa-google"></span>
+            GOOGLE
+          </button>
+        </div>
+      </div> 
+              
+    </mat-card-content>
+  </mat-card>
+</div>

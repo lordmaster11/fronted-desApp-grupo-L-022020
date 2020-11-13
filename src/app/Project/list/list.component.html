@@ -1,3 +1,4 @@
+  <!--
   <section class="row mt-5">
     <div class="col">
       
@@ -65,3 +66,69 @@
       </table>
     </div>
   </section>
+-->
+<section class="row mt-5">
+  <div class="col">
+
+  <button (click)="ProfileUser()" class="btn btn-warning">{{ 'Datos Usuario' | translate }}</button>
+  <button (click)="creteProject()" class="btn btn-primary float-right mb-3" *ngIf="!userDonor" data-toggle="modal" data-target="#modalBook">{{ 'Nuevo Proyecto' | translate }}</button>
+  <p></p>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="text-center">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> # </th>
+        <td mat-cell *matCellDef="let project"> {{project.id}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="Nombre del Proyecto">
+        <th mat-header-cell *matHeaderCellDef> {{ 'Nombre del Proyecto' | translate }} </th>
+        <td mat-cell *matCellDef="let project"> {{project.fantasyName}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Localidad">
+        <th mat-header-cell *matHeaderCellDef> {{ 'Localidad' | translate }} </th>
+        <td mat-cell *matCellDef="let project"> {{project.locationProject.name}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Provincia">
+        <th mat-header-cell *matHeaderCellDef> {{ 'Provincia' | translate }} </th>
+        <td mat-cell *matCellDef="let project"> {{project.locationProject.province}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Monto Acumulado">
+        <th mat-header-cell *matHeaderCellDef> {{ 'Monto Acumulado' | translate }} </th>
+        <td mat-cell *matCellDef="let project"> $ {{project.donatedAmount}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Porcentaje Acumulado">
+        <th mat-header-cell *matHeaderCellDef> {{ 'Porcentaje Acumulado' | translate }} </th>
+        <td mat-cell *matCellDef="let project"> {{((project.donatedAmount/project.moneyNeeded)*100).toFixed(2)}} % </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Donantes">
+        <th mat-header-cell *matHeaderCellDef> {{ 'Donantes' | translate }} </th>
+        <td mat-cell *matCellDef="let project"> {{project.numberOfDonors}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>{{ 'Mis puntos: ' | translate }} <a class="text-danger">{{points}}</a></th>
+        <td mat-cell *matCellDef="let project">
+          <div class="table-button-row">
+            <button class="btn btn-success btn-sm" (click)="open(content)">{{ 'Realizar Donación' | translate }}</button>
+
+          </div>
+        </td>
+      </ng-container>
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+  </div>
+</section>

@@ -4,12 +4,13 @@ import { ProjectService} from 'src/app/Service/project.service';
 import { Project } from 'src/app/Model/Project';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import  {MatCurrencyFormatModule} from 'mat-currency-format';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UserService } from 'src/app/Service/user.service';
-import { CommonModule } from '@angular/common';
-import { LoginComponent } from 'src/app/User/login/login.component';
 import { User } from 'src/app/Model/User';
+
+import {AfterViewInit, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-list',
@@ -17,8 +18,8 @@ import { User } from 'src/app/Model/User';
   styleUrls: ['./list.component.css']
 })
 
-export class ListComponent implements OnInit  {
-  
+export class ListComponent implements OnInit, AfterViewInit  {
+
   constructor(private modalService: NgbModal, 
               private service: ProjectService,
               private serviceUser:UserService,
@@ -33,8 +34,16 @@ export class ListComponent implements OnInit  {
   userDonor = true;
   points = "";
   
+  displayedColumns: string[] = ['id', 'Nombre del Proyecto', 'Localidad', 'Provincia', 'Monto Acumulado', 'Porcentaje Acumulado', 'Donantes', 'actions'];
+  dataSource = new MatTableDataSource();
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
   ngOnInit() {
-    
     if(Number(localStorage.getItem("id")) == -1){
       this.router.navigate(['login']);
     }else{
@@ -43,10 +52,13 @@ export class ListComponent implements OnInit  {
       this.Point();
       this.service.getProjects()
         .subscribe(data => {
-          this.projects = data;
+          this.dataSource.data = data;
+
+         // this.projects = data;
         });
       }
   }
+
   Editar(project:Project):void{
     localStorage.setItem("id",project.id.toString());
     this.router.navigate(["editProject"]);

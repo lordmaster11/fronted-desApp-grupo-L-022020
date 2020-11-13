@@ -10,8 +10,7 @@ import { User } from 'src/app/Model/User';
 })
 export class EditComponent implements OnInit {
 
-  constructor(private router:Router,
-              private service:UserService){}
+  constructor(private router:Router, private service:UserService){}
               
   user:User=new User();
 
@@ -25,9 +24,9 @@ export class EditComponent implements OnInit {
     .subscribe(data=>{
       this.user=data;
     })
-
   }
-  Actualizar(user:User){
+
+  Actualizar2(user:User){
     this.service.updateUser(user)
     .subscribe(data=>{
       this.user=data;
@@ -36,6 +35,7 @@ export class EditComponent implements OnInit {
       // this.router.navigate(["listar"]);
     })
   }
+
   returnView(user:User){
     this.router.navigateByUrl('/profile');    
   }

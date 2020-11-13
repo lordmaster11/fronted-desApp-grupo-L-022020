@@ -31,8 +31,12 @@ export class NavbarComponent implements OnInit {
 
   exitUser(){
     this.user.hide();
-    localStorage.setItem("id","-1"); 
-    localStorage.setItem("role", "ROLE_USER"); 
+ //   localStorage.setItem("id","-1"); 
+ //   localStorage.setItem("role", "ROLE_USER"); 
+    
+    localStorage.removeItem('id');
+    localStorage.removeItem('role');
+
     this.router.navigate(['login']);
   } 
 
