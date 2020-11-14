@@ -16,7 +16,7 @@ section {
     text-align: left;
   }
 
-  .full-width-input {
+  .full-width-input, button {
     width: 100%;
   }
 
