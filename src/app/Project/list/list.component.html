@@ -156,8 +156,8 @@
                 </ng-template>
                 <div class="table-button-row">
                 <button class="btn btn-success btn-sm" (click)="open(content)" *ngIf="userDonor && project.isOpen">{{ 'Realizar Donación' | translate }}</button>
-                <button class="btn btn-success btn-sm" (click)="open(content)" *ngIf="userDonor && !project.isOpen" disabled>{{ 'Realizar Donación' | translate }}</button>
-                <button class="btn btn-danger btn-sm" *ngIf="!userDonor && project.isOpen">{{ 'Cerrar Proyecto' | translate }}</button>
+                <button class="btn btn-success btn-sm" *ngIf="userDonor && !project.isOpen" disabled>{{ 'Realizar Donación' | translate }}</button>
+                <button class="btn btn-danger btn-sm" (click)="onClickConfirm(project)" *ngIf="!userDonor && project.isOpen">{{ 'Cerrar Proyecto' | translate }}</button>
                 <button class="btn btn-danger btn-sm" *ngIf="!userDonor && !project.isOpen" disabled>{{ 'Cerrar Proyecto' | translate }}</button>
                 </div>
                 <pre>{{ closeResult }}</pre>

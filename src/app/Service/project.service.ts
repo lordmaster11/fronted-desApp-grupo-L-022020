@@ -48,4 +48,9 @@ export class ProjectService {
                                 "&comment="+comment, 
                                 this.httpOptions);       
   }
+
+  closeProject(projectId:number): Observable<any>{
+    return this.http.put<any>("https://desappgrupol022020backend.herokuapp.com/api/closeProject/"+projectId, 
+                                this.httpOptions);       
+  }
 }

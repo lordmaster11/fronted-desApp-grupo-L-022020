@@ -137,4 +137,18 @@ export class ListComponent implements OnInit, AfterViewInit  {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+  closeProject(project:Project){
+    this.service.closeProject(project.id)
+    .subscribe(data=>{
+      this.ngOnInit();
+      this.router.navigate(["listProject"]);
+    })
+  }
+
+  onClickConfirm(project:Project){
+    if (confirm('¿Esta seguro de cerrar el proyecto?')) {
+      this.closeProject(project);
+    }
+  }
 }
