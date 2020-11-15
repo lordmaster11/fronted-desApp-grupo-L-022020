@@ -68,17 +68,29 @@
     </div>
   </section>
 -->
+
+
+
 <section class="row mt-5">
   <div class="col">
 
-  <button (click)="ProfileUser()" class="btn btn-warning">{{ 'Datos Usuario' | translate }}</button>
-  <button (click)="creteProject()" class="btn btn-primary float-right mb-3" *ngIf="!userDonor">{{ 'Nuevo Proyecto' | translate }}</button>
+  <h1>{{ 'Proyectos' | translate }}</h1>
+
+  <div class="search-div">
+    <mat-form-field class="search-form-field" floatLabel="never">
+      <input matInput  autocomplete="off" (keyup)="applyFilter($event)" placeholder="{{ 'Buscar' | translate }}" #input>
+    </mat-form-field>
+    <button mat-raised-button *ngIf="userDonor" float-right >{{ 'Proyectos Abiertos' | translate }}</button>
+    <button mat-raised-button *ngIf="!userDonor" float-right (click)="creteProject()">{{ 'Nuevo Proyecto' | translate }}</button>
+  </div>
+
   <p></p>
+
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" class="text-center">
   
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> # </th>
+        <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let project"> {{project.id}} </td>
       </ng-container>
   
@@ -144,7 +156,9 @@
                 </ng-template>
                 <div class="table-button-row">
                 <button class="btn btn-success btn-sm" (click)="open(content)" *ngIf="userDonor && project.isOpen">{{ 'Realizar Donación' | translate }}</button>
+                <button class="btn btn-success btn-sm" (click)="open(content)" *ngIf="userDonor && !project.isOpen" disabled>{{ 'Realizar Donación' | translate }}</button>
                 <button class="btn btn-danger btn-sm" *ngIf="!userDonor && project.isOpen">{{ 'Cerrar Proyecto' | translate }}</button>
+                <button class="btn btn-danger btn-sm" *ngIf="!userDonor && !project.isOpen" disabled>{{ 'Cerrar Proyecto' | translate }}</button>
                 </div>
                 <pre>{{ closeResult }}</pre>
         </td>

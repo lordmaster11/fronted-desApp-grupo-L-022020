@@ -40,4 +40,9 @@ export class DonationsComponent implements OnInit, AfterViewInit {
   returnHome():void{
     this.router.navigate(['listProject']);
   }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

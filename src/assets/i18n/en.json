@@ -42,5 +42,10 @@
     "No es un email valido": "Not a valid email",
     "Debe ingresar un valor": "You must enter a value",
     "Este campo debe tener más de ": "This field must be longer than",
-    "caracteres": "characters"
+    "caracteres": "characters",
+    "Proyectos": "Projects",
+    "Mis Donaciones": "My Donations",
+    "Cerrar Proyecto": "Close Project",
+    "Proyectos Abiertos": "Open Projects",
+    "Buscar": "Search"
 }

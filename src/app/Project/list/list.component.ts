@@ -132,4 +132,9 @@ export class ListComponent implements OnInit, AfterViewInit  {
   creteProject(){
     this.router.navigate(["createProject"]);
   }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

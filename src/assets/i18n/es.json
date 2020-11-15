@@ -42,5 +42,10 @@
     "No es un email valido": "No es un email valido",
     "Debe ingresar un valor": "Debe ingresar un valor",
     "Este campo debe tener más de ": "Este campo debe tener más de ",
-    "caracteres": "caracteres"
+    "caracteres": "caracteres",
+    "Proyectos": "Proyectos",
+    "Mis Donaciones": "Mis Donaciones",
+    "Cerrar Proyecto": "Cerrar Proyecto",
+    "Proyectos Abiertos": "Proyectos Abiertos",
+    "Buscar": "Buscar"
 }
