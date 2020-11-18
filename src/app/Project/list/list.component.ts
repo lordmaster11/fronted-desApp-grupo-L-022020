@@ -36,6 +36,7 @@ export class ListComponent implements OnInit, AfterViewInit  {
   
   displayedColumns: string[] = ['id', 'Nombre del Proyecto', 'Localidad', 'Provincia', 'Monto Acumulado', 'Porcentaje Acumulado', 'Donantes', 'actions'];
   dataSource = new MatTableDataSource();
+  volver = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -53,8 +54,7 @@ export class ListComponent implements OnInit, AfterViewInit  {
       this.service.getProjects()
         .subscribe(data => {
           this.dataSource.data = data;
-
-         // this.projects = data;
+          this.projects = data;
         });
       }
   }
@@ -129,6 +129,7 @@ export class ListComponent implements OnInit, AfterViewInit  {
     //this.router.navigateByUrl('/profile', { state: { id: this.idUser } }); 
     this.router.navigate(["profile"]);
   }
+
   creteProject(){
     this.router.navigate(["createProject"]);
   }
@@ -150,5 +151,19 @@ export class ListComponent implements OnInit, AfterViewInit  {
     if (confirm('¿Esta seguro de cerrar el proyecto?')) {
       this.closeProject(project);
     }
+  }
+
+  getOpenProjects(){
+    this.dataSource.data = this.projects.filter(x =>x.isOpen === true)
+    this.volver = true;
+  }
+
+  return(){
+    this.service.getProjects()
+    .subscribe(data => {
+      this.dataSource.data = data;
+      this.projects = data;
+      this.volver = false;
+    })
   }
 }

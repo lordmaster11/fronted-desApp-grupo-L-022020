@@ -4,8 +4,6 @@
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <!--<button (click)="useLanguage('en')">en</button>-->
   
   <ul class="navbar-nav mr-auto">
     <li class="nav-item" *ngIf="!isLogged">
@@ -28,7 +26,7 @@
         <a *ngIf="!user.visible"class="nav-link" routerLink="/login">{{ 'Iniciar sesión' | translate }}</a>	
       </li>  
       <li class="nav-item" *ngIf="!isLogged">
-        <a *ngIf="user.visible" class="nav-link" (click)="ProfileUser()" routerLink="/profile">{{ 'Profile' | translate }}</a>
+        <a *ngIf="user.visible" class="nav-link" routerLink="/profile">{{ 'Perfil' | translate }}</a>
       </li> 
       <li class="nav-item" *ngIf="!isLogged">
         <a *ngIf="user.visible"  class="nav-link" (click)="exitUser()" routerLink="/login">{{ 'Salir' | translate }}</a>

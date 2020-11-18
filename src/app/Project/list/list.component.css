@@ -1,5 +1,5 @@
 section {
-    padding: 40px 0;
+    padding: 45px 0;
     margin-bottom: 30px;
   }
 
@@ -55,4 +55,9 @@ h1 {
 .table-button-row {
   padding-top: 5px;
   margin-bottom: -10px;
+}
+
+#btn-danger {
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
