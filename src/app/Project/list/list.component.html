@@ -76,12 +76,19 @@
 
   <h1>{{ 'Proyectos' | translate }}</h1>
 
-  <div class="search-div">
+  <div class="search-div" *ngIf="userDonor">
     <mat-form-field class="search-form-field" floatLabel="never">
       <input matInput  autocomplete="off" (keyup)="applyFilter($event)" placeholder="{{ 'Buscar' | translate }}" #input>
     </mat-form-field>
     <button mat-raised-button *ngIf="userDonor" float-right (click)="getOpenProjects()">{{ 'Proyectos Abiertos' | translate }}</button>
-    <button mat-raised-button *ngIf="!userDonor" float-right (click)="creteProject()">{{ 'Nuevo Proyecto' | translate }}</button>
+  </div>
+
+  <div class="search-div" *ngIf="!userDonor">
+    <mat-form-field class="search-form-field-admin" floatLabel="never">
+      <input matInput  autocomplete="off" (keyup)="applyFilter($event)" placeholder="{{ 'Buscar' | translate }}" #input>
+    </mat-form-field>
+    <button mat-raised-button id="button-admin" float-right (click)="creteProject()">{{ 'Nuevo Proyecto' | translate }}</button>
+    <button mat-raised-button id="button-admin" float-right (click)="getOpenProjects()">{{ 'Proyectos Abiertos' | translate }}</button>
   </div>
 
   <p></p>

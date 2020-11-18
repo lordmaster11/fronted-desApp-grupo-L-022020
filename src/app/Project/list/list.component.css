@@ -28,6 +28,11 @@ h1 {
   margin-right: 10px;
 }
 
+.search-form-field-admin {
+  width:70%;
+  margin-right: 5px;
+}
+
 .search-form-field div.mat-form-field-underline {
   display: none;
 }
@@ -50,6 +55,14 @@ h1 {
   text-align: center;
   position: relative;
   align-self: center;
+}
+
+#button-admin {
+  vertical-align: middle !important;
+  text-align: center;
+  position: relative;
+  align-self: center;
+  margin-left: 15px;
 }
 
 .table-button-row {
