@@ -74,3 +74,11 @@ h1 {
   margin-top: 20px;
   margin-bottom: 30px;
 }
+
+.space {
+  margin-bottom: 20px;
+}
+
+#textarea {
+  height: 60px;
+}

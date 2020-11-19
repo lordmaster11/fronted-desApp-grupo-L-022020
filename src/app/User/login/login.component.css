@@ -25,7 +25,7 @@ section {
   padding: 5rem 1rem;
 }
 
-  mat-card {
+  .mat-card {
     max-width: 330px;
     margin: 2rem auto;
     text-align: center;
@@ -38,4 +38,8 @@ section {
 
   .separator {
     margin-bottom: 2rem;
+  }
+
+  .form {
+    margin-bottom: 20px;
   }

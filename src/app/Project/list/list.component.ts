@@ -34,7 +34,7 @@ export class ListComponent implements OnInit, AfterViewInit  {
   userDonor = true;
   points = "";
   
-  displayedColumns: string[] = ['id', 'Nombre del Proyecto', 'Localidad', 'Provincia', 'Monto Acumulado', 'Porcentaje Acumulado', 'Donantes', 'actions'];
+  displayedColumns: string[] = ['id', 'Nombre del Proyecto', 'Localidad', 'Provincia', 'Monto Acumulado', 'Porcentaje Acumulado', 'Donantes', 'Fecha de Fin', 'actions'];
   dataSource = new MatTableDataSource();
   volver = false;
 

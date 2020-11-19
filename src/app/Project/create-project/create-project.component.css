@@ -1,3 +1,35 @@
 section {
-    padding: 50px 0;
+    padding: 35px 0;
+  }
+
+.btn {
+    margin-left: 15px;
 }
+
+.centerbtn{
+  display: flex;
+  justify-content: center;
+}
+
+.create-project-form {
+  padding: 3rem 1rem;
+}
+
+.mat-card {
+    max-width: 330px;
+    margin: 2rem auto;
+    text-align: left;
+  }
+
+  .full-width-input,
+  button {
+    width: 100%;
+  }
+
+  .separator {
+    margin-bottom: 2rem;
+  }
+
+  .mat-card {
+    margin-top: 50px;
+  }

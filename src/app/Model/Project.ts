@@ -10,4 +10,5 @@ export class Project{
     isOpen:boolean;
     moneyNeeded:number;
     numberOfDonors:number;
+    endOfProject: Date;
 }

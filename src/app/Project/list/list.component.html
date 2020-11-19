@@ -131,28 +131,34 @@
         <td mat-cell *matCellDef="let project"> {{project.numberOfDonors}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="Fecha de Fin">
+        <th mat-header-cell *matHeaderCellDef> {{ 'Fecha de Fin' | translate }} </th>
+        <td mat-cell *matCellDef="let project"> <a class="text-danger">{{project.endOfProject | date:'dd/MM/yyyy'}} </a></td>
+      </ng-container>
+      
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef>{{ 'Mis puntos: ' | translate }} <a class="text-danger">{{points}}</a></th>
+        <th mat-header-cell *matHeaderCellDef>{{ 'Mis puntos: ' | translate }} <a class="text-success">{{points}}</a></th>
         <td mat-cell *matCellDef="let project">
           <ng-template #content let-modal>
                   <div class="modal-header">
-                    <h4 class="modal-title" id="modal-basic-title">{{ 'Realizar Donación' | translate }}</h4>
+                    <h3 class="modal-title" id="modal-basic-title">{{ 'Realizar Donación' | translate }}</h3>
                     <button type="button" class="close"  (click)="modal.dismiss('Cross click')">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
                     <form>
-                      <div class="form-group">
-                        <div class="input-group">
-                          <input class="form-control" [(ngModel)]='montoDonado'  placeholder="{{ 'Ingrese Monto' | translate }}" name="dp" ngbDatepicker #dp="ngbDatepicker" required>
-                            </div>
+                      <div class="space">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">{{ '$' | translate }}</span>
+                          <input class="form-control" [(ngModel)]='montoDonado'  placeholder="{{ 'Ingrese Monto' | translate }}" name="montoDonado" required>
+                        </div>
                       </div>
                     </form>
-                    <form>
+                      <form>
                       <div class="form-group">
                         <div class="input-group">
-                          <input class="form-control" [(ngModel)]='comment'  placeholder="{{ 'Escribe aquí tus comentarios' | translate }}" name="dp" ngbDatepicker #dp="ngbDatepicker" rows="10" cols="40" spellcheck="true" required>
+                          <textarea name="comment" class="form-control" [(ngModel)]='comment'  placeholder="{{ 'Escribe aquí tus comentarios' | translate }}" cols="40" rows="5" required></textarea>
                         </div>
                       </div>
                     </form>

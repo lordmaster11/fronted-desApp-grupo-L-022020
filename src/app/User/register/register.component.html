@@ -55,7 +55,7 @@
     <mat-card-content>
       <h1 class="h3 mb-3 font-weight-normal">{{ 'Registrarse' | translate }}</h1>
       <hr>
-      <form [formGroup]="loginForm.baseForm" (ngSubmit)="Registrar()">
+      <form [formGroup]="loginForm.baseForm" (ngSubmit)="Registrar()" class="form">
         <mat-form-field class="full-width-input">
           <input
             text="text"
@@ -124,17 +124,16 @@
         <hr>
 
         <div class="form-group">
-          <button class="btn btn-block btn-social btn-facebook" >
-            <span class="fa fa-facebook"></span>
-            FACEBOOK
-          </button>
           <button class="btn btn-block btn-social btn-google" >
             <span class="fa fa-google"></span>
             GOOGLE
           </button>
+          <button class="btn btn-block btn-social btn-facebook" >
+            <span class="fa fa-facebook"></span>
+            FACEBOOK
+          </button>
         </div>
-      </div> 
-              
+      </div>  
     </mat-card-content>
   </mat-card>
 </div>

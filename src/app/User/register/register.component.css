@@ -24,10 +24,11 @@ section {
   padding: 3rem 1rem;
 }
 
-  mat-card {
+  .mat-card {
     max-width: 330px;
-    margin: 2rem auto;
-    text-align: left;
+    margin: 1rem auto;
+    margin-top: 30px;
+    text-align: center;
   }
 
   .full-width-input,
@@ -37,4 +38,8 @@ section {
 
   .separator {
     margin-bottom: 2rem;
+  }
+
+  .form {
+    margin-bottom: 10px;
   }
