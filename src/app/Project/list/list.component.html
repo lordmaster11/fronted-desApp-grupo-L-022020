@@ -147,24 +147,30 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <form>
+                    <form [formGroup]="donateForm.baseForm" (ngSubmit)="Donar(project.id)" class="form" >
                       <div class="space">
                         <div class="input-group-prepend">
                           <span class="input-group-text">{{ '$' | translate }}</span>
-                          <input class="form-control" [(ngModel)]='montoDonado'  placeholder="{{ 'Ingrese Monto' | translate }}" name="montoDonado" required>
+                          <input formControlName="montoDonado" class="form-control"  placeholder="{{ 'Ingrese Monto' | translate }}" name="montoDonado" required>
                         </div>
+                        <mat-error *ngIf="checkField('montoDonado')">
+                          {{ donateForm.errorMessage }}
+                        </mat-error>
                       </div>
-                    </form>
-                      <form>
+                      
                       <div class="form-group">
                         <div class="input-group">
-                          <textarea name="comment" class="form-control" [(ngModel)]='comment'  placeholder="{{ 'Escribe aquí tus comentarios' | translate }}" cols="40" rows="5" required></textarea>
+                          <textarea formControlName="comment" name="comment" class="form-control"  placeholder="{{ 'Escribe aquí tus comentarios' | translate }}" cols="40" rows="5" required></textarea>
                         </div>
+                        <mat-error *ngIf="checkField('comment')">
+                          {{ donateForm.errorMessage }}
+                        </mat-error>
                       </div>
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" (click)="Donar(project.id, montoDonado,comment)" (click)="modal.dismiss('Cross click')" (click)="UpdateProject(project)">{{ 'Donar' | translate }}</button>
+                    <button type="button" [disabled]="donateForm.baseForm.invalid" (click)="Donar(project.id)" 
+                    class="btn btn-danger" (click)="modal.dismiss('Cross click')" (click)="UpdateProject(project)">{{ 'Donar' | translate }}</button>
                   </div>
                 </ng-template>
                 <div class="table-button-row">

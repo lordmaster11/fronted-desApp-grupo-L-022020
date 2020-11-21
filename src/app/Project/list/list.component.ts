@@ -1,7 +1,8 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, Params, Routes, RouterModule, NavigationEnd} from '@angular/router';
 import { ProjectService} from 'src/app/Service/project.service';
 import { Project } from 'src/app/Model/Project';
+import { BaseFormDonate } from 'src/app/Utils/base-form-donate';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -18,12 +19,13 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./list.component.css']
 })
 
-export class ListComponent implements OnInit, AfterViewInit  {
+export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private modalService: NgbModal, 
               private service: ProjectService,
               private serviceUser:UserService,
-              private router: Router){}
+              private router: Router,
+              public donateForm: BaseFormDonate){}
 
   projects: Project[];
   project :Project=new Project();
@@ -59,6 +61,10 @@ export class ListComponent implements OnInit, AfterViewInit  {
       }
   }
 
+  ngOnDestroy(): void {
+    this.donateForm.baseForm.reset();
+  }
+
   Editar(project:Project):void{
     localStorage.setItem("id",project.id.toString());
     this.router.navigate(["editProject"]);
@@ -72,21 +78,23 @@ export class ListComponent implements OnInit, AfterViewInit  {
     })
   }
   
-  Donar(idProject:number, montoADonar:number, comment:string){
-    if(idProject== null || montoADonar == null || comment == null){
-      alert("Debe ingresar todos los datos");
-    }else{
-      this.Point();
-      this.service.createDonation(this.idUser, idProject, montoADonar, comment)
-      .subscribe(response => {
-        this.ngOnInit();
-        alert("Donación exitosa, gracias por su colaboración");
-          },
-          (error: HttpErrorResponse) => {
-          alert("Hubo un problema con la donación" + error.error.errors);
-          // Handle error
-          });
+  Donar(idProject:number){
+    if (this.donateForm.baseForm.invalid) {
+      return;
     }
+
+    this.Point();
+    const formValue = this.donateForm.baseForm.value;
+
+    this.service.createDonation(this.idUser, idProject, formValue.montoDonado, formValue.comment)
+    .subscribe(response => {
+      this.ngOnInit();
+        alert("Donación exitosa, gracias por su colaboración");
+    },
+      (error: HttpErrorResponse) => {
+        alert("Hubo un problema con la donación vuelva a intentar"); //"Hubo un problema con la donación" + error.error.errors
+          // Handle error
+      });
   }
   
   Point(){
@@ -165,5 +173,9 @@ export class ListComponent implements OnInit, AfterViewInit  {
       this.projects = data;
       this.volver = false;
     })
+  }
+
+  checkField(field: string): boolean {
+    return this.donateForm.isValidField(field);
   }
 }
