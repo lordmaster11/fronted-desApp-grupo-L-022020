@@ -92,7 +92,7 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
         alert("Donación exitosa, gracias por su colaboración");
     },
       (error: HttpErrorResponse) => {
-        alert("Hubo un problema con la donación vuelva a intentar"); //"Hubo un problema con la donación" + error.error.errors
+        alert("Hubo un problema con la donación" + error.error.errors); //"Hubo un problema con la donación" + error.error.errors
           // Handle error
       });
   }
