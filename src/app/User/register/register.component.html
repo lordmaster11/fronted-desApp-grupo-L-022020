@@ -54,6 +54,12 @@
   <mat-card>
     <mat-card-content>
       <h1 class="h3 mb-3 font-weight-normal">{{ 'Registrarse' | translate }}</h1>
+   
+        <button class="btn btn-block btn-social btn-google" (click)="loginWithRedirect()" >
+          <span class="fa fa-google"></span>
+          GOOGLE
+        </button>
+
       <hr>
       <form [formGroup]="loginForm.baseForm" (ngSubmit)="Registrar()" class="form">
         <mat-form-field class="full-width-input">

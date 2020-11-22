@@ -5,6 +5,7 @@ import { User } from 'src/app/Model/User';
 import { UserService } from 'src/app/Service/user.service';
 import { BaseFormUser } from 'src/app/Utils/base-form-user';
 import { Subscription } from 'rxjs';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(private router:Router,
               private service:UserService,
-              public loginForm: BaseFormUser
+              public loginForm: BaseFormUser,
+              public auth: AuthService
               ){}
   
   user: User=new User();
@@ -81,4 +83,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   Register(){
     this.router.navigate(["register"]);
   }
+
+  loginWithRedirect(): void {
+    this.auth.loginWithRedirect();
+  }
+
 }

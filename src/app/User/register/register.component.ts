@@ -6,6 +6,7 @@ import { UserService } from 'src/app/Service/user.service';
 import { NgForm } from '@angular/forms';
 import { BaseFormUser } from 'src/app/Utils/base-form-user';
 import { Subscription } from 'rxjs';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
   hide = true;
   private subscription: Subscription = new Subscription();
 
-  constructor(private router:Router, private service:UserService, public loginForm: BaseFormUser) { }
+  constructor(private router:Router, 
+              private service:UserService, 
+              public loginForm: BaseFormUser,
+              public auth: AuthService) { }
 
   user: User=new User();
   message:any;
@@ -54,6 +58,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
     return this.loginForm.isValidField(field);
   }
 
+   loginWithRedirect(): void {
+    this.auth.loginWithRedirect({ screen_hint: 'signup' });
+  }
+
+  
   /*
   Registrar(){
     if(this.user.name== null || this.user.mail== null || this.user.nick== null || this.user.password== null){

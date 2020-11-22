@@ -24,6 +24,8 @@ import { CreateProjectComponent } from './Project/create-project/create-project.
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment as env } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,9 @@ import { MaterialModule } from './material.module';
       }
     }),
     BrowserAnimationsModule,
+    AuthModule.forRoot({
+      ...env.auth,
+    }),
   ],
   providers: [UserService, ProjectService],
   bootstrap: [AppComponent]

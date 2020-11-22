@@ -89,14 +89,16 @@
           <hr>
           <label class="label-bold d-block">{{ 'Inicia sesión con:' | translate }}</label>
           <div class="form-group">
-            <button class="btn btn-block btn-social btn-google" >
+            <button class="btn btn-block btn-social btn-google" (click)="loginWithRedirect()" >
               <span class="fa fa-google"></span>
               GOOGLE
             </button>
-            <button class="btn btn-block btn-social btn-facebook" >
+          <!--
+          <button class="btn btn-block btn-social btn-facebook" (click)="loginWithRedirect()" >
               <span class="fa fa-facebook"></span>
               FACEBOOK
-            </button>
+            </button>-->
+
           </div>
         </div> 
                 
