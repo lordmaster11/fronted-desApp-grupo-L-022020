@@ -50,4 +50,11 @@ export class NavbarComponent implements OnInit {
   useLanguage(language: string){
     this.translate.use(language);
   }
+
+  loginWithRedirect(): void {
+    this.auth.loginWithPopup();
+  }
+  loginWithRedirectSignup(): void {
+    this.auth.loginWithPopup({ screen_hint: 'signup' });
+  }
 }

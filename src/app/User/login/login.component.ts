@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   loginWithRedirect(): void {
-    this.auth.loginWithRedirect();
+    this.auth.loginWithPopup();
   }
 
 }

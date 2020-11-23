@@ -10,7 +10,7 @@ import { DonationsComponent } from './User/donations/donations.component';
 import { CreateProjectComponent } from './Project/create-project/create-project.component';
 
 const routes: Routes = [
-  {path:"",redirectTo:"login",pathMatch:"full"},
+  {path:"",redirectTo:"listProject",pathMatch:"full"},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'listar',component:ListarComponent},
