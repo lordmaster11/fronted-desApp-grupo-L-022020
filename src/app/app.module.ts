@@ -24,6 +24,7 @@ import { CreateProjectComponent } from './Project/create-project/create-project.
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { AuthService } from './auth/auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { MaterialModule } from './material.module';
     }),
     BrowserAnimationsModule,
   ],
-  providers: [UserService, ProjectService],
+  providers: [UserService, ProjectService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

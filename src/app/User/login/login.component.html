@@ -89,7 +89,7 @@
           <hr>
           <label class="label-bold d-block">{{ 'Inicia sesión con:' | translate }}</label>
           <div class="form-group">
-            <button class="btn btn-block btn-social btn-google" >
+            <button class="btn btn-block btn-social btn-google" (click)= "auth.login()">
               <span class="fa fa-google"></span>
               GOOGLE
             </button>
