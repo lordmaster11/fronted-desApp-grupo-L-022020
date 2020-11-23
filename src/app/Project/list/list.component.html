@@ -174,8 +174,9 @@
                   </div>
                 </ng-template>
                 <div class="table-button-row">
-                <button class="btn btn-success btn-sm" (click)="open(content)" *ngIf="userDonor && project.isOpen">{{ 'Realizar Donación' | translate }}</button>
-                <button class="btn btn-success btn-sm" *ngIf="userDonor && !project.isOpen" disabled>{{ 'Realizar Donación' | translate }}</button>
+                <button class="btn btn-success btn-sm" (click)="open(content)" *ngIf="userDonor && project.isOpen">{{ 'Donar' | translate }}</button>
+                <button class="btn btn-success btn-sm" *ngIf="userDonor && !project.isOpen" disabled>{{ 'Donar' | translate }}</button>
+                <button class="btn btn-warning btn-sm" (click)="donors(project)" (click)="open(content2)" *ngIf="userDonor">{{ 'Donantes' | translate }}</button>
                 <button class="btn btn-danger btn-sm" (click)="onClickConfirm(project)" *ngIf="!userDonor && project.isOpen">{{ 'Cerrar Proyecto' | translate }}</button>
                 <button class="btn btn-danger btn-sm" *ngIf="!userDonor && !project.isOpen" disabled>{{ 'Cerrar Proyecto' | translate }}</button>
                 </div>
@@ -191,4 +192,24 @@
   </div>
       <button *ngIf="volver" (click)="return()" type="submit" class="btn btn-danger float-right" id="btn-danger">{{ 'Volver' | translate }}</button>
   </div>
+
+  <ng-template #content2 let-modal>
+    <div class="modal-header">
+      <h3 class="modal-title" id="modal-basic-title">{{ 'Donantes del projecto:' | translate }}</h3>
+      <button type="button" class="close"  (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form *ngFor="let donor of listDonors"  class="form">
+          <ul>
+          <li>
+          <span>{{donor}}</span> 
+          </ul>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="modal.dismiss('Cross click')">{{ 'Volver' | translate }}</button>
+    </div>
+  </ng-template>
 </section>

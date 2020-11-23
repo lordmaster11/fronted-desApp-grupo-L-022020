@@ -39,6 +39,7 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   displayedColumns: string[] = ['id', 'Nombre del Proyecto', 'Localidad', 'Provincia', 'Monto Acumulado', 'Porcentaje Acumulado', 'Donantes', 'Fecha de Fin', 'actions'];
   dataSource = new MatTableDataSource();
   volver = false;
+  listDonors: String[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -177,5 +178,13 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   checkField(field: string): boolean {
     return this.donateForm.isValidField(field);
+  }
+
+  donors(project:Project){
+    this.service.donorsProject(project)
+    .subscribe(data => {
+     this.listDonors = data;
+     console.log(project.id)
+    })
   }
 }

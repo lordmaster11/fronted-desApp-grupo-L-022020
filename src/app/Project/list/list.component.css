@@ -82,3 +82,7 @@ h1 {
 #textarea {
   height: 60px;
 }
+
+.btn {
+  margin-left: 15px;
+}

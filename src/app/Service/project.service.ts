@@ -53,4 +53,8 @@ export class ProjectService {
     return this.http.put<any>("https://desappgrupol022020backend.herokuapp.com/api/closeProject/"+projectId, 
                                 this.httpOptions);       
   }
+
+  donorsProject(project:Project){
+    return this.http.get<String[]>("https://desappgrupol022020backend.herokuapp.com/api/donorsOfProject/"+project.id);
+  }
 }
