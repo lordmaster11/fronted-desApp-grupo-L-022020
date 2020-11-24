@@ -1,105 +1,61 @@
-<!--
-<section id="login" class="mb-5 mt-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
-        <div class="card_login">
-          <div class="card">
-            <div class="card-body text-center">
-              <form action="">
-                <h1 class="h3 mb-3 font-weight-normal">{{ 'Iniciar sesión' | translate }}</h1>
-                <hr>
-                <div class="form-group">
-                  <input [(ngModel)]="user.mail" type="mail" id="mail" name="mail" class="form-control" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                  <input [(ngModel)]="user.password" type="password" id="password" name="password" class="form-control" placeholder="{{ 'Contraseña' | translate }}" required>
-                </div>
-                <hr>
-                <button (click)="Login()" type="submit" class="btn btn-primary btn-block">{{ 'Iniciar sesión' | translate }}</button>
-                <div class="form-group">
-                  <a routerLink="/register">{{ '¿Aún no tienes una cuenta? Regístrate' | translate }}</a>
-                </div>  
-
-                <label class="label-bold d-block">{{ 'Inicia sesión con:' | translate }}</label>
-                <div class="form-group">
-                  <button class="btn btn-block btn-social btn-facebook" >
-                    <span class="fa fa-facebook"></span>
-                    FACEBOOK
-                  </button>
-                  <button class="btn btn-block btn-social btn-google" >
-                    <span class="fa fa-google"></span>
-                    GOOGLE
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
--->
-
-  <div class="login-form">
-    <mat-card>
-      <mat-card-content>
-        <h1 class="h3 mb-3 font-weight-normal">{{ 'Iniciar sesión' | translate }}</h1>
-        <hr>
-        <form [formGroup]="loginForm.baseForm" (ngSubmit)="onLogin()" class="form">
-          <mat-form-field class="full-width-input">
-            <input
-              text="text"
-              formControlName="mail"
-              matInput
-              placeholder="Email"
-              required
-            />
-            <mat-error *ngIf="checkField('mail')">
-              {{ loginForm.errorMessage }}
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field class="full-width-input">
-            <input
-              [type]="hide ? 'password' : 'text'"
-              formControlName="password"
-              matInput
-              placeholder="{{ 'Contraseña' | translate }}"
-              required
-            />
-            <button mat-icon-button matSuffix (click)="hide = !hide">
-              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-            </button>
-            <mat-error *ngIf="checkField('password')">
-              {{ loginForm.errorMessage }}
-            </mat-error>
-          </mat-form-field>
-          <button
-            [disabled]="loginForm.baseForm.invalid"
-            type="submit"
-            mat-raised-button
-            color="primary"
-          >{{ 'Iniciar sesión' | translate }}
+<div class="login-form">
+  <mat-card>
+    <mat-card-content>
+      <h1 class="h3 mb-3 font-weight-normal">{{ 'Iniciar sesión' | translate }}</h1>
+      <hr>
+      <form [formGroup]="loginForm.baseForm" (ngSubmit)="onLogin()" class="form">
+        <mat-form-field class="full-width-input">
+          <input
+            text="text"
+            formControlName="mail"
+            matInput
+            placeholder="Email"
+            required
+          />
+          <mat-error *ngIf="checkField('mail')">
+            {{ loginForm.errorMessage }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+          <input
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+            matInput
+            placeholder="{{ 'Contraseña' | translate }}"
+            required
+          />
+          <button mat-icon-button matSuffix (click)="hide = !hide">
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
           </button>
-        </form>
+          <mat-error *ngIf="checkField('password')">
+            {{ loginForm.errorMessage }}
+          </mat-error>
+        </mat-form-field>
+        <button
+          [disabled]="loginForm.baseForm.invalid"
+          type="submit"
+          mat-raised-button
+          color="primary"
+        >{{ 'Iniciar sesión' | translate }}
+        </button>
+      </form>
 
+      <div class="form-group">
+        <a routerLink="/register">{{ '¿Aún no tienes una cuenta? Regístrate' | translate }}</a>
+        <hr>
+        <label class="label-bold d-block">{{ 'Inicia sesión con:' | translate }}</label>
         <div class="form-group">
-          <a routerLink="/register">{{ '¿Aún no tienes una cuenta? Regístrate' | translate }}</a>
-          <hr>
-          <label class="label-bold d-block">{{ 'Inicia sesión con:' | translate }}</label>
-          <div class="form-group">
-            <button class="btn btn-block btn-social btn-google" >
-              <span class="fa fa-google"></span>
-              GOOGLE
-            </button>
-            <button class="btn btn-block btn-social btn-facebook" >
-              <span class="fa fa-facebook"></span>
-              FACEBOOK
-            </button>
-          </div>
-        </div> 
-                
-      </mat-card-content>
-    </mat-card>
-  </div>
+          <button class="btn btn-block btn-social btn-google" >
+            <span class="fa fa-google"></span>
+            GOOGLE
+          </button>
+          <button class="btn btn-block btn-social btn-facebook" >
+            <span class="fa fa-facebook"></span>
+            FACEBOOK
+          </button>
+        </div>
+      </div> 
+              
+    </mat-card-content>
+  </mat-card>
+</div>

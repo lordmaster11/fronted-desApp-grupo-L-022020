@@ -35,25 +35,20 @@ export class CreateProjectComponent implements OnInit, OnDestroy {
   }
 
   Registrar(){
-//    if(this.idProject == null){
-//      alert("Debe seleccionar una localidad");
-//    }else{
-
-      if (this.projectForm.baseForm.invalid) {
-        return;
-      }
-  
-      const formValue = this.projectForm.baseForm.value;
-      let resp = this.service.createProject(this.idProject, formValue.factor,
-                            formValue.percentageRequiredForClosing,formValue.fantasyName);
-      resp.subscribe((response) => {
-        this.router.navigate(['listProject']);
-          },
-          (error: HttpErrorResponse) => {
-            alert(error.error.errors);
-          });
-  //    }
+    if (this.projectForm.baseForm.invalid) {
+      return;
     }
+
+    const formValue = this.projectForm.baseForm.value;
+    let resp = this.service.createProject(this.idProject, formValue.factor,
+                          formValue.percentageRequiredForClosing,formValue.fantasyName);
+    resp.subscribe((response) => {
+      this.router.navigate(['listProject']);
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.error.errors);
+        });
+  }
 
   selected(item:any){
     this.idProject = item.target.value

@@ -1,107 +1,60 @@
-<!--
-<section id="register" class="mb-5 mt-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
-          <div class="card_register">
-            <div class="card">
-              <div class="card-body text-center">
-                <form action="">
-                  <h1 class="h3 mb-3 font-weight-normal">{{ 'Crear Proyecto' | translate }}</h1>
-                  <hr>
-                  <div class="form-group">
-                    <select [(ngModel)]= "selectedLevel" (change)="selected($event)" class="form-control"  
-                            required minlength="10" maxlength="10">
-                        <option *ngFor="let item of locations" [value]="item.id">{{item.name}}</option>
-                    </select>
-                  </div>
-                  
-                  <div class="form-group">
-                    <input type="number" name="factor" class="form-control" placeholder="{{ 'Factor' | translate }}" [(ngModel)]="project.factor" required minlength="4">
-                  </div>
-                  
-                  <div class="form-group">
-                    <input type="number" name="percentageRequiredForClosing" class="form-control" placeholder="{{ 'Porcentaje Requerido' | translate }}" [(ngModel)]="project.percentageRequiredForClosing" required minlength="1"
-                      maxlength="3">
-                  </div>
-                  
-                  <div class="form-group">
-                    <input type="name" name="fantasyName" class="form-control" placeholder="{{ 'Nombre del Proyecto' | translate }}" [(ngModel)]="project.fantasyName" required minlength="5"
-                      maxlength="360">
-                  </div>
-                  <hr>
-                  
-                  <button (click)="Registrar()" type="submit" class="btn btn-info btn-block">{{ 'Crear Proyecto' | translate }}</button>
-                  <button (click)="returnHome()" type="submit" class="btn btn-danger btn-block" routerLink="listProject">{{ 'Cancelar' | translate }}   
-                  </button>
-                </form>
-              </div>
-            </div>
+<div class="create-project-form">
+  <mat-card>
+    <mat-card-content>
+      <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'Crear Proyecto' | translate }}</h1>
+      <hr>
+      <form [formGroup]="projectForm.baseForm" (ngSubmit)="Registrar()" class="form" >
+        <div class="form-group">
+          <label for="">{{ 'Localidad:' | translate }}</label>
+          <div class="input-group">
+          <select  formControlName="selectedLevel"  name="selectedLevel" (change)="selected($event)" class="form-control" required>
+              <option *ngFor="let item of locations" [value]="item.id" placeholder="{{ 'Localidad' | translate }}">{{item.name}}</option>
+          </select>
           </div>
+          <mat-error *ngIf="checkField('selectedLevel')">
+            {{ projectForm.errorMessage }}
+          </mat-error>
         </div>
+
+        <div class="form-group">
+          <label for="">{{ 'Factor:' | translate }}</label>
+          <div class="input-group mb-3">
+            <input formControlName="factor" name="factor" class="form-control" placeholder="{{ 'Factor' | translate }}" required>
+          </div>
+          <mat-error *ngIf="checkField('factor')">
+            {{ projectForm.errorMessage }}
+          </mat-error>
+        </div>
+        
+        <div class="form-group">
+          <label for="">{{ 'Porcentaje Requerido' | translate }}</label>
+          <div class="input-group mb-3">
+          <input formControlName="percentageRequiredForClosing" name="percentageRequiredForClosing" class="form-control" placeholder="{{ 'Porcentaje Requerido' | translate }}" required>
+          <div class="input-group-append">
+            <span class="input-group-text">%</span>
+          </div>
+          </div>
+          <mat-error *ngIf="checkField('percentageRequiredForClosing')">
+            {{ projectForm.errorMessage }}
+          </mat-error>
+        </div>
+        
+        <div class="form-group">
+          <label for="">{{ 'Nombre del Proyecto' | translate }}</label>
+          <div class="input-group">
+            <input formControlName="fantasyName" type="name" name="fantasyName" class="form-control" placeholder="{{ 'Nombre del Proyecto' | translate }}" required>
+          </div>
+          <mat-error *ngIf="checkField('fantasyName')">
+            {{ projectForm.errorMessage }}
+          </mat-error>
+        </div>
+      </form>
+
+      <hr>
+      <div class="centerbtn">
+        <button [disabled]="projectForm.baseForm.invalid" (click)="Registrar()"  type="submit" class="btn btn-info">{{ 'Crear Proyecto' | translate }}</button>
+        <button (click)="returnHome()" type="submit" class="btn btn-danger" routerLink="listProject">{{ 'Cancelar' | translate }}</button>
       </div>
-    </div>
-  </section>
--->
-
-
-  <div class="create-project-form">
-    <mat-card>
-      <mat-card-content>
-        <h1 class="h3 mb-3 font-weight-normal text-center">{{ 'Crear Proyecto' | translate }}</h1>
-        <hr>
-        <form [formGroup]="projectForm.baseForm" (ngSubmit)="Registrar()" class="form" >
-          <div class="form-group">
-            <label for="">{{ 'Localidad:' | translate }}</label>
-            <div class="input-group">
-            <select  formControlName="selectedLevel"  name="selectedLevel" (change)="selected($event)" class="form-control" required>
-                <option *ngFor="let item of locations" [value]="item.id" placeholder="{{ 'Localidad' | translate }}">{{item.name}}</option>
-            </select>
-            </div>
-            <mat-error *ngIf="checkField('selectedLevel')">
-              {{ projectForm.errorMessage }}
-            </mat-error>
-          </div>
-
-          <div class="form-group">
-            <label for="">{{ 'Factor:' | translate }}</label>
-            <div class="input-group mb-3">
-              <input formControlName="factor" name="factor" class="form-control" placeholder="{{ 'Factor' | translate }}" required>
-            </div>
-            <mat-error *ngIf="checkField('factor')">
-              {{ projectForm.errorMessage }}
-            </mat-error>
-          </div>
-          
-          <div class="form-group">
-            <label for="">{{ 'Porcentaje Requerido' | translate }}</label>
-            <div class="input-group mb-3">
-            <input formControlName="percentageRequiredForClosing" name="percentageRequiredForClosing" class="form-control" placeholder="{{ 'Porcentaje Requerido' | translate }}" required>
-            <div class="input-group-append">
-              <span class="input-group-text">%</span>
-            </div>
-            </div>
-            <mat-error *ngIf="checkField('percentageRequiredForClosing')">
-              {{ projectForm.errorMessage }}
-            </mat-error>
-          </div>
-          
-          <div class="form-group">
-            <label for="">{{ 'Nombre del Proyecto' | translate }}</label>
-            <div class="input-group">
-              <input formControlName="fantasyName" type="name" name="fantasyName" class="form-control" placeholder="{{ 'Nombre del Proyecto' | translate }}" required>
-            </div>
-            <mat-error *ngIf="checkField('fantasyName')">
-              {{ projectForm.errorMessage }}
-            </mat-error>
-          </div>
-        </form>
-  
-        <hr>
-        <div class="centerbtn">
-          <button [disabled]="projectForm.baseForm.invalid" (click)="Registrar()"  type="submit" class="btn btn-info">{{ 'Crear Proyecto' | translate }}</button>
-          <button (click)="returnHome()" type="submit" class="btn btn-danger" routerLink="listProject">{{ 'Cancelar' | translate }}</button>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
+    </mat-card-content>
+  </mat-card>
+</div>

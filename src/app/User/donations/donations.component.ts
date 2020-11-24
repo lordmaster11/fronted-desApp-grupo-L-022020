@@ -19,7 +19,7 @@ export class DonationsComponent implements OnInit, AfterViewInit {
   
   donations:Donation[];
 
-  displayedColumns: string[] = ['id', 'Nombre del Proyecto', 'Localidad', 'Monto Donado', 'Fecha de Donación', 'Comentario'];
+  displayedColumns: string[] = ['Nombre del Proyecto', 'Localidad', 'Monto Donado', 'Fecha de Donación', 'Comentario'];
   dataSource = new MatTableDataSource();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -33,7 +33,6 @@ export class DonationsComponent implements OnInit, AfterViewInit {
     this.service.getDonationUserId(id)
     .subscribe(data => {
       this.dataSource.data = data;
-//      this.donations = response;
     });
   }
 

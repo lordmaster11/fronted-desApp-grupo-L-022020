@@ -60,23 +60,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   checkField(field: string): boolean {
     return this.loginForm.isValidField(field);
   }
-/*
-  Login(){
-    if(this.user.name!= null || this.user.password!= null){
-    this.service.login(this.user).subscribe((response) => {
-      localStorage.setItem("id",response.id.toString()); 
-      localStorage.setItem("role",response.role.toString()); 
-      this.service.show();
-      this.router.navigate(['listProject']);
-      },
-      (error: HttpErrorResponse) => {
-        alert("Ingresó mal los datos");
-      // Handle error
-      });
-    }else{
-      alert("Debe ingresar todos los datos");
-    }
-  }*/
   
   Register(){
     this.router.navigate(["register"]);

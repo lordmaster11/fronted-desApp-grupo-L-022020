@@ -32,7 +32,6 @@ export class EditComponent implements OnInit {
       this.user=data;
       alert("El usuario se actualizó correctamente!!!");
       this.router.navigateByUrl('/listProject'); 
-      // this.router.navigate(["listar"]);
     })
   }
 

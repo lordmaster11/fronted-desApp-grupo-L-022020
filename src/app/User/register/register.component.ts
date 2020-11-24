@@ -53,23 +53,4 @@ export class RegisterComponent implements OnInit, OnDestroy {
   checkField(field: string): boolean {
     return this.loginForm.isValidField(field);
   }
-
-  /*
-  Registrar(){
-    if(this.user.name== null || this.user.mail== null || this.user.nick== null || this.user.password== null){
-      alert("Debe ingresar todos los datos");
-    }else{
-    let resp=this.service.createUser(this.user);
-    resp.subscribe((response) => {
-      this.service.show();
-      localStorage.setItem("id",response.id.toString());
-      localStorage.setItem("role", "ROLE_USER"); 
-      this.router.navigate(['listProject']);
-        },
-        (error: HttpErrorResponse) => {
-          alert("El usuario con el email: "+ this.user.mail + " ya existe!!!");
-        // Handle error
-        });
-    }
-  }*/
 }

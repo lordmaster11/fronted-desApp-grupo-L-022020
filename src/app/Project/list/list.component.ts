@@ -93,7 +93,7 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
         alert("Donación exitosa, gracias por su colaboración");
     },
       (error: HttpErrorResponse) => {
-        alert("Hubo un problema con la donación" + error.error.errors); //"Hubo un problema con la donación" + error.error.errors
+        alert("Hubo un problema con la donación " + error.error.errors);
           // Handle error
       });
   }
@@ -133,9 +133,7 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  ProfileUser(){
-   // localStorage.setItem("id",this.idUser.toString());
-    //this.router.navigateByUrl('/profile', { state: { id: this.idUser } }); 
+  ProfileUser(){ 
     this.router.navigate(["profile"]);
   }
 
@@ -151,9 +149,11 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
   closeProject(project:Project){
     this.service.closeProject(project.id)
     .subscribe(data=>{
-      this.ngOnInit();
-      this.router.navigate(["listProject"]);
-    })
+      this.ngOnInit()
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.error.errors);
+    });
   }
 
   onClickConfirm(project:Project){
@@ -184,7 +184,6 @@ export class ListComponent implements OnInit, AfterViewInit, OnDestroy {
     this.service.donorsProject(project)
     .subscribe(data => {
      this.listDonors = data;
-     console.log(project.id)
     })
   }
 }
